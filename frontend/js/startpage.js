@@ -33,17 +33,11 @@ async function populateBookrows(){
         else{
             console.log('Warning! Book missing cover');
         }
-        console.log('Book cover url: ', bookCoverURL);
         
     });
     
     bookList.forEach(book =>{
         const bookCoverURL = book.attributes.cover.data.attributes.url;
-
-        
-        const bookGenreList = book.attributes.genres.data;
-
-        console.log(bookGenreList)
 
         if(containsGenre('fantasy')){
             bookRowFantasy.append(bookRowItemContainer(bookCoverURL));
@@ -53,7 +47,7 @@ async function populateBookrows(){
         }
 
         function containsGenre(genre){
-            return bookGenreList.find(b => b.attributes.name == genre) || false;
+            return book.attributes.genres.data.find(b => b.attributes.name == genre) || false;
         }
     })
 
