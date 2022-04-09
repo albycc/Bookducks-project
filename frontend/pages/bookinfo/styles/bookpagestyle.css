@@ -1,0 +1,27 @@
+main.bookpage-main {
+  background-color: #D0EDED; }
+
+.book-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px; }
+  .book-container .bookinfo-flexcolumn {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px; }
+    .book-container .bookinfo-flexcolumn .book-cover {
+      background-color: red; }
+      .book-container .bookinfo-flexcolumn .book-cover img {
+        height: auto;
+        width: 200px; }
+    .book-container .bookinfo-flexcolumn .book-info-panel {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      width: 200px;
+      height: 300px; }
+  .book-container div.main-book-container {
+    width: 700px;
+    border: 1px solid black; }
+
+/*# sourceMappingURL=bookpagestyle.css.map */
