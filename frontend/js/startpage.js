@@ -1,5 +1,6 @@
 
 const bookRowPopular = $('#popular-books-row');
+const bookRowFantasy = $('#fantasy-books-row')
 
 console.log(bookRowPopular)
 
@@ -11,15 +12,19 @@ async function populateBookrows(){
 
     //'http://localhost:1337/api/book-collection?populate=*'
     //
-    const {data:{data}} = await axios.get('http://localhost:1337/api/books?populate=*', {
-        headers:{
-            Authorization: `Bearer ${token}`,
-        },
-    });
+    const {data:{data}} = await axios.get('http://localhost:1337/api/books?populate=*')
 
-    console.log(data)
+    
+    //get available books
+    const bookList = data.filter(b => !b.attributes.loanedBy.data);
 
-    data.forEach(book => {
+    const trendingBooks = bookList.sort((a,b) => b.attributes.avgScore - a.attributes.avgScore).slice(0, 5);
+
+    const fantasyBooks = bookList.filter(b => b.attributes.genres.data.find(g => g.attributes.name == "fantasy"))
+
+    console.log(fantasyBooks)
+    
+    trendingBooks.forEach(book => {
         const bookCoverURL = book.attributes.cover.data.attributes.url;
         if(bookCoverURL){
             bookRowPopular.append(bookRowItemContainer(bookCoverURL));
@@ -30,6 +35,10 @@ async function populateBookrows(){
         console.log('Book cover url: ', bookCoverURL);
 
     });
+
+
+
+
 }
 
 const bookRowItemContainer= (url) => {

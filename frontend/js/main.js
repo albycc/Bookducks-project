@@ -5,12 +5,12 @@ main.js
 
 // export let token = null;
 
-// login user when page loads
-(function(){
+// login test user
+//ONLY FOR TESTING PURPOSES
+function loginTestUser(){
 
     token = JSON.parse(sessionStorage.getItem('token'));
 
-    //if there is no logged in user yet. ONLY FOR TESTING PURPOSES
     if(!token){
         console.log('login function call')
         axios.post('http://localhost:1337/api/auth/local', {
@@ -28,4 +28,6 @@ main.js
         })
     }
 
-})();
+};
+
+loginTestUser();
