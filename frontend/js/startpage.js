@@ -17,7 +17,9 @@ async function populateBookrows(){
 
     
     //get available books
-    const bookList = data.filter(b => !b.attributes.loanedBy.data);
+    // const bookList = data.filter(b => !b.attributes.loanedBy.data);
+
+    const bookList = data;
 
     const trendingBooks = bookList.sort((a,b) => b.attributes.avgScore - a.attributes.avgScore).slice(0, 5);
 
@@ -28,7 +30,7 @@ async function populateBookrows(){
     trendingBooks.forEach(book => {
         const bookCoverURL = book.attributes.cover.data.attributes.url;
         if(bookCoverURL){
-            bookRowPopular.append(bookRowItemContainer(bookCoverURL));
+            bookRowPopular.append(bookRowItemContainer(book));
         }
         else{
             console.log('Warning! Book missing cover');
@@ -40,10 +42,10 @@ async function populateBookrows(){
         const bookCoverURL = book.attributes.cover.data.attributes.url;
 
         if(containsGenre('fantasy')){
-            bookRowFantasy.append(bookRowItemContainer(bookCoverURL));
+            bookRowFantasy.append(bookRowItemContainer(book));
         }
         else if(containsGenre('sci-fi')){
-            bookRowScifi.append(bookRowItemContainer(bookCoverURL));
+            bookRowScifi.append(bookRowItemContainer(book));
         }
 
         function containsGenre(genre){
@@ -56,11 +58,12 @@ async function populateBookrows(){
 
 }
 
-const bookRowItemContainer= (url) => {
+const bookRowItemContainer = (item) => {
+
     return $(`
     <div class="book-container">
-        <a href="./pages/bookinfo/bookinfo.html">
-            <img src="http://localhost:1337${url}">
+        <a href="./pages/bookinfo/bookinfo.html?id=${item.id}">
+            <img src="http://localhost:1337${item.attributes.cover.data.attributes.url}">
         </a>
     </div>`)
 }
