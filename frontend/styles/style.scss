@@ -54,3 +54,17 @@
         }
     }
 }
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-space-between{
+    justify-content: space-between;
+}
