@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "book_collections",
+  "info": {
+    "singularName": "book-collection",
+    "pluralName": "book-collections",
+    "displayName": "bookCollection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book"
+    }
+  }
+}
