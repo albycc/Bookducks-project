@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_audio_book_audio_books",
+  "collectionName": "components_type_audiobooks",
   "info": {
-    "displayName": "audioBook",
+    "displayName": "Audiobook",
     "icon": "file-audio",
     "description": ""
   },
@@ -10,7 +10,7 @@
     "length": {
       "type": "integer"
     },
-    "NarratedBy": {
+    "narratedBy": {
       "type": "string"
     }
   }

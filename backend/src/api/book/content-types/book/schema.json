@@ -62,11 +62,12 @@
     "type": {
       "type": "dynamiczone",
       "components": [
-        "audio-book.audio-book",
-        "page-book.page-book"
+        "type.audiobook",
+        "type.book"
       ],
       "required": true,
-      "max": 1
+      "max": 1,
+      "min": 1
     }
   }
 }

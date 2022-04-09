@@ -12,16 +12,16 @@ main.bookpage-main {
     .book-container .bookinfo-flexcolumn .book-cover {
       background-color: red; }
       .book-container .bookinfo-flexcolumn .book-cover img {
-        height: 200px;
-        width: 150px; }
+        height: auto;
+        width: 200px; }
     .book-container .bookinfo-flexcolumn .book-info-panel {
       display: flex;
       flex-direction: column;
       border: 1px solid black;
-      width: 150px;
+      width: 200px;
       height: 300px; }
   .book-container div.main-book-container {
-    width: 800px;
+    width: 700px;
     border: 1px solid black; }
 
 /*# sourceMappingURL=bookpagestyle.css.map */

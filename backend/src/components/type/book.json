@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_type_books",
+  "info": {
+    "displayName": "book",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "nrPages": {
+      "type": "integer"
+    }
+  }
+}

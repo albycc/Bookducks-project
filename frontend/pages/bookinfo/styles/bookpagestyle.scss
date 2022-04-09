@@ -12,13 +12,14 @@ main.bookpage-main{
         display: flex;
         flex-direction: column;
         margin:0px 10px;
+        $column-width:200px;
 
         .book-cover{
             background-color: red;
         
             img{
-                height:200px;
-                width:150px;
+                height:auto;
+                width:$column-width;
             }
         }
 
@@ -26,14 +27,14 @@ main.bookpage-main{
             display: flex;
             flex-direction: column;
             border: 1px solid black;
-            width:150px;
+            width:$column-width;
             height:300px;
         }
     }
 
     div.main-book-container{
 
-        width:800px;
+        width:700px;
         border: 1px solid black;
     }
     
