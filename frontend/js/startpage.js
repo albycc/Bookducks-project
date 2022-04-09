@@ -1,6 +1,7 @@
 
 const bookRowPopular = $('#popular-books-row');
 const bookRowFantasy = $('#fantasy-books-row')
+const bookRowScifi = $('#scifi-books-row')
 
 console.log(bookRowPopular)
 
@@ -20,9 +21,9 @@ async function populateBookrows(){
 
     const trendingBooks = bookList.sort((a,b) => b.attributes.avgScore - a.attributes.avgScore).slice(0, 5);
 
-    const fantasyBooks = bookList.filter(b => b.attributes.genres.data.find(g => g.attributes.name == "fantasy"))
+    // const fantasyBooks = bookList.filter(b => b.attributes.genres.data.find(g => g.attributes.name == "fantasy"))
 
-    console.log(fantasyBooks)
+    console.log(bookList)
     
     trendingBooks.forEach(book => {
         const bookCoverURL = book.attributes.cover.data.attributes.url;
@@ -30,11 +31,31 @@ async function populateBookrows(){
             bookRowPopular.append(bookRowItemContainer(bookCoverURL));
         }
         else{
-            console.log('Warning! Book missing cover')
+            console.log('Warning! Book missing cover');
         }
         console.log('Book cover url: ', bookCoverURL);
-
+        
     });
+    
+    bookList.forEach(book =>{
+        const bookCoverURL = book.attributes.cover.data.attributes.url;
+
+        
+        const bookGenreList = book.attributes.genres.data;
+
+        console.log(bookGenreList)
+
+        if(containsGenre('fantasy')){
+            bookRowFantasy.append(bookRowItemContainer(bookCoverURL));
+        }
+        else if(containsGenre('sci-fi')){
+            bookRowScifi.append(bookRowItemContainer(bookCoverURL));
+        }
+
+        function containsGenre(genre){
+            return bookGenreList.find(b => b.attributes.name == genre) || false;
+        }
+    })
 
 
 
