@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "book_collections",
+  "info": {
+    "singularName": "book-collection",
+    "pluralName": "book-collections",
+    "displayName": "BookCollection"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "audiobooks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook"
+    },
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book"
+    }
+  }
+}

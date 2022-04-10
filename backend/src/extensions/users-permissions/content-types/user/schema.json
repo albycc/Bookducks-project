@@ -68,6 +68,12 @@
       "relation": "oneToMany",
       "target": "api::book.book",
       "mappedBy": "loanedBy"
+    },
+    "audiobooksLoaned": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook",
+      "mappedBy": "loanedBy"
     }
   }
 }

@@ -21,6 +21,12 @@
       "relation": "manyToMany",
       "target": "api::book.book",
       "mappedBy": "genres"
+    },
+    "audiobooks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::audiobook.audiobook",
+      "mappedBy": "genres"
     }
   }
 }

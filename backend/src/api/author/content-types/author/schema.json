@@ -21,6 +21,18 @@
       "relation": "manyToMany",
       "target": "api::book.book",
       "mappedBy": "authors"
+    },
+    "audiobooksWritten": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::audiobook.audiobook",
+      "mappedBy": "authors"
+    },
+    "audiobooksNarrated": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::audiobook.audiobook",
+      "mappedBy": "narratedBy"
     }
   }
 }
