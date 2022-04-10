@@ -1,11 +1,10 @@
 //bookInfo.js
 
+import {userData} from '../../../js/main.js';
+
 let bookId;
 let collection;
 let book;
-
-const userData = JSON.parse(sessionStorage.getItem('userData'));
-
 
 async function loadBookData(){
     const params = new URLSearchParams(location.search)
@@ -56,11 +55,17 @@ async function loadBookData(){
     const loanBtn = $('#loan-btn');
     
     // is book already loaned?
-    book.loanedBy.data ? 
-        (loanBtn.text('Already loaned'), 
-        loanBtn.prop('disabled', true)) :
-        loanBtn.text('Loan');
-    loanBtn.on('click', loanBook)
+    if(userData == null){
+        loanBtn.prop('disabled', true);
+        loanBtn.text('Login to loan')
+    }
+    else{
+        book.loanedBy.data ? 
+            (loanBtn.text('Already loaned'), 
+            loanBtn.prop('disabled', true)) :
+            loanBtn.text('Loan');
+        loanBtn.on('click', loanBook)
+    }
 }
 
 loadBookData();
