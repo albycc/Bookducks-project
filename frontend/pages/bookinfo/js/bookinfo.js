@@ -1,11 +1,11 @@
 //bookInfo.js
 
-
 let bookId;
 let collection;
+let book;
 
+const userData = JSON.parse(sessionStorage.getItem('userData'));
 
-const token = JSON.parse(sessionStorage.getItem('token'));
 
 async function loadBookData(){
     const params = new URLSearchParams(location.search)
@@ -15,7 +15,8 @@ async function loadBookData(){
 
     const {data:{data:{attributes}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
 
-    const book = attributes;
+    book = attributes;
+    const bookType = collection[0].toUpperCase() + collection.slice(1, collection.length-1)
 
     const authorString = book.authors.data.map(b => b.attributes.name).join(", ");
     const genreString = book.genres.data.map(b => b.attributes.name).join(", ");
@@ -29,7 +30,7 @@ async function loadBookData(){
             </div>
             <div class="book-info-panel">
 
-                <p>Format <br> </p>
+                <p>Format <br>${bookType}</p>
                 <p>ISBN <br>${book.isbn}</p>
                 <p>Genres <br>${genreString}</p>
             </div>
@@ -78,7 +79,25 @@ async function loanBook(){
     },
     {
         headers:{
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${userData.jwt}`,
         }
+    })
+    const popupContainer = $(`<div class="recipe-popup-container"></div>`);
+    const popupMessage = $('<div class="message-box"></div>');
+
+    popupMessage.append(`
+        <h2>You have loaned ${book.title}!</h2>
+        <h3>Recipe details</h3>
+        <p>Loaned by: ${userData.user.username}</p>
+        <p>Email: ${userData.user.email}</p>
+        <a href="../../index.html">Search more books<a>
+        <button id="close-popup-btn">Close</button>
+    `);
+    popupContainer.append(popupMessage);
+
+    $('#bookpage-container').prepend(popupContainer);
+
+    $('#close-popup-btn').on('click', ()=>{
+        location.reload();
     })
 }

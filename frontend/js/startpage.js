@@ -7,7 +7,7 @@ console.log(bookRowPopular)
 
 async function populateBookrows(){
 
-    const token = JSON.parse(sessionStorage.getItem('token'))
+    const {jwt} = JSON.parse(sessionStorage.getItem('userData'))
 
     // console.log(token)
 
