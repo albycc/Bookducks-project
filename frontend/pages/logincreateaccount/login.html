@@ -11,7 +11,11 @@
 </head>
 <body>
     <div class="login-page-layout">
+        <h1>Login to Book Ducks</h1>
         <div class="login-container">
+            <div class="error-container hide-visible">
+                <p id="error-message" class="error-box"></p>
+            </div>
             <form action="" class="login-form">
                 <ul>
                     <li>
@@ -34,11 +38,13 @@
                             >
                         </div>
                     </li>
+                
                     <li>
                         <div>
                             <input 
                                 type="submit" 
                                 value="Login"
+                                id="login-btn"
                             >
                         </div>
                     </li>
