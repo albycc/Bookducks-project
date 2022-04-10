@@ -7,7 +7,6 @@ $('#login-btn').on('click', (e)=>{
     e.preventDefault();
 
     if(emailField.val() == "" || passwordField.val() == ""){
-        console.log(errorMessage.parent().hasClass('hide-visible'))
         printErrorMessage("Empty fields");
         return;
     }
@@ -32,7 +31,7 @@ $('#login-btn').on('click', (e)=>{
     })
 })
 
-function printErrorMessage(message){
+export function printErrorMessage(message){
     if(errorMessage.parent().hasClass('hide-visible')){
         errorMessage.parent().removeClass('hide-visible');
     }
