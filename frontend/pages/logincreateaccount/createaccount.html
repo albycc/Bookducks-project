@@ -7,17 +7,27 @@
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="./styles/loginstyle.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Login</title>
+    <title>Create account</title>
 </head>
 <body>
     <div class="login-page-layout">
-        <h1>Login to Book Ducks</h1>
+        <h1>Create account</h1>
         <div class="login-container">
             <div class="error-container hide-visible">
                 <p id="error-message" class="error-box"></p>
             </div>
-            <form action="" class="login-form">
+            <form class="login-form">
                 <ul>
+                    <li>
+                        <div class="form-input-field-grp">
+                            <label for="username-input-field">Username</label>
+                            <input 
+                                type="text" 
+                                name="username-input-field" 
+                                id="username-input-field"
+                            >
+                        </div>
+                    </li>
                     <li>
                         <div class="form-input-field-grp">
                             <label for="email-input-field">Email</label>
@@ -38,25 +48,29 @@
                             >
                         </div>
                     </li>
+                    <li>
+                        <input type="checkbox" name="terms-checkbox" id="terms-checkbox">
+                        <label for="terms-checkbox">Accept terms</label>
+                    </li>
                 
                     <li>
                         <div>
                             <input 
                                 type="submit" 
-                                value="Login"
+                                value="Create Account"
                                 id="login-btn"
                             >
                         </div>
                     </li>
                 </ul>
             </form>
-            <p><a href="./createaccount.html">New Account</a></p>
+            <p><a href="./login.html">Back to login</a></p>
             <p><a href="../../index.html">Back to startpage</a></p>
         </div> 
     </div>
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <script type="module" src="../../js/main.js"></script>
-    <script type="module" src="./js/login.js"></script>
+    <script src="./js/createaccount.js"></script>
     
 </body>
 </html>
