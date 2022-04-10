@@ -1,0 +1,35 @@
+
+.login-page-layout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:100vh;
+    background-color: rgb(126, 198, 243);
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    width:600px;
+    min-height:300px;
+    border-radius: 10px;
+
+    .login-form{
+        ul{
+            list-style-type: none;
+            li{
+                margin:20px auto;
+                .form-input-field-grp{
+                    
+                    *{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

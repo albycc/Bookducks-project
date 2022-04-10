@@ -1,0 +1,25 @@
+.login-page-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #7ec6f3; }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 600px;
+  min-height: 300px;
+  border-radius: 10px; }
+  .login-container .login-form ul {
+    list-style-type: none; }
+    .login-container .login-form ul li {
+      margin: 20px auto; }
+      .login-container .login-form ul li .form-input-field-grp * {
+        display: block; }
+
+/*# sourceMappingURL=loginstyle.css.map */
