@@ -2,24 +2,23 @@
 
 
 let bookId;
+let collection;
+
 
 const token = JSON.parse(sessionStorage.getItem('token'));
 
 async function loadBookData(){
-    const qs = new URLSearchParams(location.search)
+    const params = new URLSearchParams(location.search)
     
-    bookId = qs.get('id');
+    bookId = params.get('id');
+    collection = params.get('collection')
 
-    const {data:{data:{attributes}}} = await axios.get(`http://localhost:1337/api/books/${bookId}?populate=*`)
+    const {data:{data:{attributes}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
 
     const book = attributes;
 
-    console.log(book)
-
     const authorString = book.authors.data.map(b => b.attributes.name).join(", ");
     const genreString = book.genres.data.map(b => b.attributes.name).join(", ");
-
-    const bookType = book.type[0].__component.split('.')[1];
 
     // console.log(bookType)
 
@@ -30,7 +29,7 @@ async function loadBookData(){
             </div>
             <div class="book-info-panel">
 
-                <p>Format <br> ${bookType}</p>
+                <p>Format <br> </p>
                 <p>ISBN <br>${book.isbn}</p>
                 <p>Genres <br>${genreString}</p>
             </div>
@@ -72,7 +71,7 @@ loadBookData();
 async function loanBook(){
     console.log('loan book function');
 
-    const response = await axios.put(`http://localhost:1337/api/books/${bookId}`, {
+    await axios.put(`http://localhost:1337/api/${collection}/${bookId}`, {
         data:{
             loanedBy:1,
         }
