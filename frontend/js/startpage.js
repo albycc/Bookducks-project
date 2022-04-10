@@ -7,19 +7,18 @@ console.log(bookRowPopular)
 
 async function populateBookrows(){
 
-    const token = JSON.parse(sessionStorage.getItem('token'))
+    const {jwt} = JSON.parse(sessionStorage.getItem('userData'))
 
     // console.log(token)
 
     //'http://localhost:1337/api/book-collection?populate=*'
     //
-    const {data:{data}} = await axios.get('http://localhost:1337/api/books?populate=*')
+    const books = await axios.get('http://localhost:1337/api/books?populate=*');
+    const audiobooks = await axios.get('http://localhost:1337/api/audiobooks?populate=*');
 
-    
-    //get available books
-    // const bookList = data.filter(b => !b.attributes.loanedBy.data);
+    console.log(books)
 
-    const bookList = data;
+    const bookList = [...books.data.data, ...audiobooks.data.data]
 
     const trendingBooks = bookList.sort((a,b) => b.attributes.avgScore - a.attributes.avgScore).slice(0, 5);
 
@@ -39,7 +38,6 @@ async function populateBookrows(){
     });
     
     bookList.forEach(book =>{
-        const bookCoverURL = book.attributes.cover.data.attributes.url;
 
         if(containsGenre('fantasy')){
             bookRowFantasy.append(bookRowItemContainer(book));
@@ -60,9 +58,12 @@ async function populateBookrows(){
 
 const bookRowItemContainer = (item) => {
 
+    //what type of book?
+    const collection = item.attributes.hasOwnProperty("nrPages") ? "books" : "audiobooks";
+
     return $(`
     <div class="book-container">
-        <a href="./pages/bookinfo/bookinfo.html?id=${item.id}">
+        <a href="./pages/bookinfo/bookinfo.html?id=${item.id}&collection=${collection}">
             <img src="http://localhost:1337${item.attributes.cover.data.attributes.url}">
         </a>
     </div>`)

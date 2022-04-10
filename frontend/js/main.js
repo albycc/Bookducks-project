@@ -18,10 +18,9 @@ function loginTestUser(){
             password:'test1234',
         })
         .then(response =>{
-            const {data:{jwt}} = response;
-            token = jwt;
-            console.log('User profile: ', jwt);
-            sessionStorage.setItem('token', JSON.stringify(token))
+            const {data} = response;
+            console.log('User profile: ', data);
+            sessionStorage.setItem('userData', JSON.stringify(data))
         })
         .catch(error =>{
             console.log('There was an error: ', error)

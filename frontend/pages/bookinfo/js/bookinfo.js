@@ -1,25 +1,25 @@
 //bookInfo.js
 
-
 let bookId;
+let collection;
+let book;
 
-const token = JSON.parse(sessionStorage.getItem('token'));
+const userData = JSON.parse(sessionStorage.getItem('userData'));
+
 
 async function loadBookData(){
-    const qs = new URLSearchParams(location.search)
+    const params = new URLSearchParams(location.search)
     
-    bookId = qs.get('id');
+    bookId = params.get('id');
+    collection = params.get('collection')
 
-    const {data:{data:{attributes}}} = await axios.get(`http://localhost:1337/api/books/${bookId}?populate=*`)
+    const {data:{data:{attributes}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
 
-    const book = attributes;
-
-    console.log(book)
+    book = attributes;
+    const bookType = collection[0].toUpperCase() + collection.slice(1, collection.length-1)
 
     const authorString = book.authors.data.map(b => b.attributes.name).join(", ");
     const genreString = book.genres.data.map(b => b.attributes.name).join(", ");
-
-    const bookType = book.type[0].__component.split('.')[1];
 
     // console.log(bookType)
 
@@ -30,7 +30,7 @@ async function loadBookData(){
             </div>
             <div class="book-info-panel">
 
-                <p>Format <br> ${bookType}</p>
+                <p>Format <br>${bookType}</p>
                 <p>ISBN <br>${book.isbn}</p>
                 <p>Genres <br>${genreString}</p>
             </div>
@@ -72,14 +72,32 @@ loadBookData();
 async function loanBook(){
     console.log('loan book function');
 
-    const response = await axios.put(`http://localhost:1337/api/books/${bookId}`, {
+    await axios.put(`http://localhost:1337/api/${collection}/${bookId}`, {
         data:{
             loanedBy:1,
         }
     },
     {
         headers:{
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${userData.jwt}`,
         }
+    })
+    const popupContainer = $(`<div class="recipe-popup-container"></div>`);
+    const popupMessage = $('<div class="message-box"></div>');
+
+    popupMessage.append(`
+        <h2>You have loaned ${book.title}!</h2>
+        <h3>Recipe details</h3>
+        <p>Loaned by: ${userData.user.username}</p>
+        <p>Email: ${userData.user.email}</p>
+        <a href="../../index.html">Search more books<a>
+        <button id="close-popup-btn">Close</button>
+    `);
+    popupContainer.append(popupMessage);
+
+    $('#bookpage-container').prepend(popupContainer);
+
+    $('#close-popup-btn').on('click', ()=>{
+        location.reload();
     })
 }
