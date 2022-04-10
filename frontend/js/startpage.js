@@ -1,3 +1,4 @@
+import {userData} from './main.js';
 
 const bookRowPopular = $('#popular-books-row');
 const bookRowFantasy = $('#fantasy-books-row')
@@ -7,12 +8,8 @@ console.log(bookRowPopular)
 
 async function populateBookrows(){
 
-    const {jwt} = JSON.parse(sessionStorage.getItem('userData'))
+    console.log(userData)
 
-    // console.log(token)
-
-    //'http://localhost:1337/api/book-collection?populate=*'
-    //
     const books = await axios.get('http://localhost:1337/api/books?populate=*');
     const audiobooks = await axios.get('http://localhost:1337/api/audiobooks?populate=*');
 

@@ -10,6 +10,9 @@
   height: auto;
   min-height: 1000px; }
   .header-footer-layout header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: lightblue;
     height: 80px; }
   .header-footer-layout main {
@@ -49,5 +52,12 @@
 
 .flex-space-between {
   justify-content: space-between; }
+
+.header-icon img {
+  width: 72px;
+  height: 72px; }
+
+.hide-visible {
+  visibility: hidden; }
 
 /*# sourceMappingURL=style.css.map */

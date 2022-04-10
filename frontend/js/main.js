@@ -7,26 +7,31 @@ main.js
 
 // login test user
 //ONLY FOR TESTING PURPOSES
-function loginTestUser(){
 
-    token = JSON.parse(sessionStorage.getItem('token'));
+const userData = JSON.parse(sessionStorage.getItem('userData'));
 
-    if(!token){
-        console.log('login function call')
-        axios.post('http://localhost:1337/api/auth/local', {
-            identifier:'testsson',
-            password:'test1234',
-        })
-        .then(response =>{
-            const {data} = response;
-            console.log('User profile: ', data);
-            sessionStorage.setItem('userData', JSON.stringify(data))
-        })
-        .catch(error =>{
-            console.log('There was an error: ', error)
+(function (){
+
+    // edit account section in header
+    const profileLinkSection = $('#profile-link-section');
+    const loginLink = $('#login-link');
+    
+    if(userData !== null){
+        
+        console.log(profileLinkSection)
+        profileLinkSection.removeClass('hide-visible');
+        $('#profile-link').text(userData.user.username)
+
+        $('#logout-btn').on('click', ()=>{
+            sessionStorage.removeItem('userData');
         })
     }
+    //user is not logged in
+    else{
+        profileLinkSection.remove();
+        loginLink.removeClass('hide-visible')
+    }
 
-};
+})();
 
-loginTestUser();
+export {userData};

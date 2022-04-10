@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./styles/loginstyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-page-layout">
+        <h1>Login to Book Ducks</h1>
+        <div class="login-container">
+            <div class="error-container hide-visible">
+                <p id="error-message" class="error-box"></p>
+            </div>
+            <form action="" class="login-form">
+                <ul>
+                    <li>
+                        <div class="form-input-field-grp">
+                            <label for="email-input-field">Email</label>
+                            <input 
+                                type="email" 
+                                name="email-input-field" 
+                                id="email-input-field"
+                            >
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-input-field-grp">
+                            <label for="password-input-field">Password</label>
+                            <input 
+                                type="password" 
+                                name="password-input-field" 
+                                id="password-input-field"
+                            >
+                        </div>
+                    </li>
+                
+                    <li>
+                        <div>
+                            <input 
+                                type="submit" 
+                                value="Login"
+                                id="login-btn"
+                            >
+                        </div>
+                    </li>
+                </ul>
+            </form>
+            <p><a href="">New Account</a></p>
+            <p><a href="">Back to startpage</a></p>
+        </div> 
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="./js/login.js"></script>
+    
+</body>
+</html>
