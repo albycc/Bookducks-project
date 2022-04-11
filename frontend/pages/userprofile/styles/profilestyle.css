@@ -1,0 +1,71 @@
+.profile-header-container {
+  display: flex;
+  justify-content: center;
+  min-height: 450px;
+  width: 100%;
+  background-color: #75a3f7; }
+
+.profile-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #dffafd;
+  width: 100%;
+  min-height: 700px; }
+
+.user-icon {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #cecece; }
+
+.user-avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 30px; }
+
+.about-info-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -30px;
+  width: 800px;
+  height: 400px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 40px 30px; }
+
+.about-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%; }
+  .about-article section {
+    min-height: 150px; }
+    .about-article section h2 {
+      text-align: center;
+      margin: 10px 0px; }
+    .about-article section .user-details-container p.user-info-row {
+      margin: 20px 0px; }
+      .about-article section .user-details-container p.user-info-row span + span {
+        margin-left: 20px; }
+
+.book-tabs-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px; }
+  .book-tabs-row .book-tab-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 50px; }
+    .book-tabs-row .book-tab-wrapper .book-tab {
+      margin: 20px 10px;
+      font-size: 2em; }
+    .book-tabs-row .book-tab-wrapper .book-tab-count {
+      font-size: 1.5em; }
+
+/*# sourceMappingURL=profilestyle.css.map */

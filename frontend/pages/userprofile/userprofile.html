@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="./styles/profilestyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <div class="header-footer-layout" id="bookpage-container">
+        <header>
+            <span class="header-icon">
+                <a href="../../index.html">
+                    <img src="../../img/icons/dukk.svg" alt="" class="header-icon">
+                </a>
+            </span>
+
+            <span id="login-section">
+                <a href="../logincreateaccount/login.html" class="hide-visible" id="login-link">Login</a>
+                <span id="profile-link-section" class="hide-visible">
+                    <a href="" id="profile-link"></a>
+                    <a href="../../index.html" id="logout-btn">Logout</a>
+                </span>
+            </span>
+
+        </header>
+
+        <main>
+            <div class="profile-header-container">
+                <div class="flex-column center">
+                    <div class="user-avatar-container">
+                        <h1>Username</h1>
+                        <div>
+                            <img src="" alt="">
+                            <div class="user-icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-main-container">
+                <div class="about-info-container">
+                    <article class="about-article">
+                        <section>
+                            <h2>ABOUT</h2>
+                            <span></span>
+                        </section>
+                        <section>
+                            <h2>INFO</h2>
+                            <div class="user-details-container">
+                                <p class="user-info-row"><span>ID</span><span></span></p>
+                                <p class="user-info-row"><span>EMAIL</span><span></span></p>
+                                <p class="user-info-row"><span>JOINED</span><span></span></p>
+                            </div>
+                    
+                        </section>
+                    </article>
+                </div>
+                <div class="book-tabs-row">
+                    <span class="book-tab-wrapper" id="loan-tab">
+                        <p class="book-tab">Loans</p>
+                        <span class="book-tab-count">0</span>
+                    </span>
+                    <span class="book-tab-wrapper" id="registered-tab">
+                        <p class="book-tab">Registered</p>
+                        <span class="book-tab-count">0</span>
+                    </span>
+                </div>
+                <div class="tab-collection">
+                    <div class="book-collection" id="books-loaned-collection"></div>
+
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="./js/profilescript.js"></script>
+    
+</body>
+</html>
