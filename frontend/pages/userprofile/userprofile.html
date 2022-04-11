@@ -37,7 +37,6 @@
                             <img src="" alt="">
                             <div class="user-icon"></div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -48,26 +47,29 @@
                             <h2>ABOUT</h2>
                             <span></span>
                         </section>
-                        <section >
+                        <section>
                             <h2>INFO</h2>
-                            <p><span>ID</span> <span></span></p>
-                            <p><span>EMAIL</span> <span></span></p>
-                            <p><span>JOINED</span> <span></span></p>
+                            <div class="user-details-container">
+                                <p class="user-info-row"><span>ID</span><span></span></p>
+                                <p class="user-info-row"><span>EMAIL</span><span></span></p>
+                                <p class="user-info-row"><span>JOINED</span><span></span></p>
+                            </div>
+                    
                         </section>
-
                     </article>
                 </div>
                 <div class="book-tabs-row">
-                    <span class="book-tab-wrapper">
-                        <p class="book-tab">Loaned</p>
+                    <span class="book-tab-wrapper" id="loan-tab">
+                        <p class="book-tab">Loans</p>
                         <span class="book-tab-count">0</span>
                     </span>
-                    <span class="book-tab-wrapper">
+                    <span class="book-tab-wrapper" id="registered-tab">
                         <p class="book-tab">Registered</p>
                         <span class="book-tab-count">0</span>
                     </span>
                 </div>
-                <div class="book-collection">
+                <div class="tab-collection">
+                    <div class="book-collection" id="books-loaned-collection"></div>
 
                 </div>
 
@@ -80,7 +82,7 @@
     </div>
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <script type="module" src="../../js/main.js"></script>
-    <script src="./js/profilescript.js"></script>
+    <script type="module" src="./js/profilescript.js"></script>
     
 </body>
 </html>

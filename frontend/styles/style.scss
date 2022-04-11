@@ -99,7 +99,20 @@ $header-height:80px;
 }
 
 .book-collection{
+    display: flex;
+    flex-flow:row wrap;
     border:1px dashed black;
     width:100%;
     min-height:500px;
+    padding:50px;
+
+    .book{
+        margin:50px 50px;
+        box-shadow: 5px 5px 10px lightgrey;
+        img{
+            width:180px;
+            height:auto;
+
+        }
+    }
 }

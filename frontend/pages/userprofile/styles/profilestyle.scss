@@ -45,11 +45,25 @@
 }
 
 .about-article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:60%;
 
     section{
         min-height:150px;
         h2{
+            text-align: center;
             margin:10px 0px;
+        }
+
+        .user-details-container{
+            p.user-info-row{
+                margin:20px 0px;
+                span + span{
+                    margin-left:20px;
+                }
+            }
         }
     }
 

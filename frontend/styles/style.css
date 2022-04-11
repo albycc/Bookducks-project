@@ -71,8 +71,17 @@
   padding: 20px 30px; }
 
 .book-collection {
+  display: flex;
+  flex-flow: row wrap;
   border: 1px dashed black;
   width: 100%;
-  min-height: 500px; }
+  min-height: 500px;
+  padding: 50px; }
+  .book-collection .book {
+    margin: 50px 50px;
+    box-shadow: 5px 5px 10px lightgrey; }
+    .book-collection .book img {
+      width: 180px;
+      height: auto; }
 
 /*# sourceMappingURL=style.css.map */
