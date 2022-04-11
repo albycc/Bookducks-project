@@ -1,0 +1,76 @@
+
+.profile-header-container{
+    display: flex;
+    justify-content: center;
+    min-height:450px;
+    width:100%;
+    background-color: rgb(117, 163, 247);
+}
+
+.profile-main-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(223, 250, 253);
+    width:100%;
+    min-height:700px;
+}
+
+.user-icon{
+    width:250px;
+    height:250px;
+    border-radius: 50%;
+    background-color: rgb(206, 206, 206);
+}
+
+.user-avatar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:70px;
+    margin-bottom:30px;
+}
+
+.about-info-container{
+    display:flex;
+    justify-content: center;
+    position: relative;
+    top:-30px;
+    width:800px;
+    height:400px;
+    background-color: white;
+    border-radius: 5px;
+    padding:40px 30px;
+}
+
+.about-article{
+
+    section{
+        min-height:150px;
+        h2{
+            margin:10px 0px;
+        }
+    }
+
+}
+
+.book-tabs-row{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    
+    .book-tab-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin:0px 50px;
+        .book-tab{
+            margin:20px 10px;
+            font-size: 2em;
+        }
+        .book-tab-count{
+            font-size: 1.5em;
+        }
+    }
+}
