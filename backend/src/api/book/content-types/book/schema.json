@@ -53,14 +53,11 @@
     "description": {
       "type": "richtext"
     },
-    "authors": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::author.author",
-      "inversedBy": "booksWritten"
-    },
     "nrPages": {
       "type": "integer"
+    },
+    "authors": {
+      "type": "string"
     }
   }
 }

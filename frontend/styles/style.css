@@ -7,8 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
-  min-height: 1000px; }
+  height: auto; }
   .header-footer-layout header {
     display: flex;
     flex-direction: row;
@@ -16,8 +15,7 @@
     background-color: lightblue;
     height: 80px; }
   .header-footer-layout main {
-    background-color: white;
-    height: auto;
+    min-height: 800px;
     flex-grow: 1; }
   .header-footer-layout footer {
     background-color: #353535;
@@ -50,6 +48,9 @@
   display: flex;
   flex-direction: column; }
 
+.flex-center {
+  justify-content: center; }
+
 .center {
   align-items: center; }
 
@@ -62,6 +63,9 @@
 
 .hide-visible {
   visibility: hidden; }
+
+.hidden {
+  display: none; }
 
 .pageinfo-container {
   background-color: white;
@@ -83,5 +87,27 @@
       width: 180px;
       height: auto;
       box-shadow: 5px 5px 10px lightgrey; }
+
+.mainpage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 800px; }
+
+.mainpage-background-lightcyan {
+  background-color: #D1FCFF; }
+
+.form-style ul {
+  list-style-type: none; }
+  .form-style ul li {
+    margin: 30px auto; }
+    .form-style ul li .label-input-column label ~ * {
+      display: block; }
+    .form-style ul li .label-input-column input[type="text"] {
+      height: 30px;
+      width: 300px; }
+    .form-style ul li .label-input-column textarea {
+      width: 300px;
+      resize: vertical; }
 
 /*# sourceMappingURL=style.css.map */
