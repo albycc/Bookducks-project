@@ -26,6 +26,8 @@
   align-items: center;
   margin-top: 70px;
   margin-bottom: 30px; }
+  .user-avatar-container h1 {
+    color: white; }
 
 .about-info-container {
   display: flex;
@@ -53,19 +55,32 @@
       .about-article section .user-details-container p.user-info-row span + span {
         margin-left: 20px; }
 
-.book-tabs-row {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 40px; }
-  .book-tabs-row .book-tab-wrapper {
-    display: flex;
+.tab-container {
+  display: block;
+  text-align: center; }
+  .tab-container .book-tab {
+    display: none;
     flex-direction: column;
     align-items: center;
-    margin: 0px 50px; }
-    .book-tabs-row .book-tab-wrapper .book-tab {
-      margin: 20px 10px;
-      font-size: 2em; }
-    .book-tabs-row .book-tab-wrapper .book-tab-count {
-      font-size: 1.5em; }
+    margin: 20px 10px;
+    font-size: 2em; }
+    .tab-container .book-tab ~ label {
+      display: inline-block;
+      margin: 20px 50px;
+      font-size: 2em;
+      cursor: pointer; }
+      .tab-container .book-tab ~ label .book-tab-count {
+        display: block;
+        font-size: 2.2em; }
+    .tab-container .book-tab ~ .tab-content {
+      display: none; }
+    .tab-container .book-tab:checked + label {
+      text-decoration: underline; }
+      .tab-container .book-tab:checked + label > .book-tab-count {
+        text-decoration: none; }
+  .tab-container #loaned-tab.book-tab:checked ~ #books-loaned-tab-content.tab-content {
+    display: block; }
+  .tab-container #registered-tab.book-tab:checked ~ #books-registered-tab-content.tab-content {
+    display: block; }
 
 /*# sourceMappingURL=profilestyle.css.map */

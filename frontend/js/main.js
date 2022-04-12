@@ -18,7 +18,6 @@ const userData = JSON.parse(sessionStorage.getItem('userData'));
     
     if(userData !== null){
         
-        console.log(profileLinkSection)
         profileLinkSection.removeClass('hide-visible');
         $('#profile-link').text(userData.user.username)
 

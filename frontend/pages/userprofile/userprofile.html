@@ -32,7 +32,7 @@
             <div class="profile-header-container">
                 <div class="flex-column center">
                     <div class="user-avatar-container">
-                        <h1>Username</h1>
+                        <h1></h1>
                         <div>
                             <img src="" alt="">
                             <div class="user-icon"></div>
@@ -58,19 +58,32 @@
                         </section>
                     </article>
                 </div>
-                <div class="book-tabs-row">
-                    <span class="book-tab-wrapper" id="loan-tab">
-                        <p class="book-tab">Loans</p>
-                        <span class="book-tab-count">0</span>
-                    </span>
-                    <span class="book-tab-wrapper" id="registered-tab">
-                        <p class="book-tab">Registered</p>
-                        <span class="book-tab-count">0</span>
-                    </span>
-                </div>
-                <div class="tab-collection">
-                    <div class="book-collection" id="books-loaned-collection"></div>
+                <div class="tab-container">
+                    <input type="radio" name="book-tabs-grp" id="loaned-tab" class="book-tab" checked>
+                    <label for="loaned-tab">Loaned <span class="book-tab-count">0</span></label>
 
+                    <input type="radio" name="book-tabs-grp" id="registered-tab" class="book-tab">
+                    <label for="registered-tab">Registered <span class="book-tab-count">0</span></label>
+
+                    <div class="tab-content" id="books-loaned-tab-content">
+                        <div class="book-collection" id="book-collection-books-loaned">
+
+                        </div>
+                    </div>
+                    <div class="tab-content" id="books-registered-tab-content">
+                        <div class="book-collection" id="book-collection-books-registered">
+
+                        </div>
+                    </div>
+                    <!-- <div class="tabs-menu-row">
+                        <span class="book-tab" id="loaned-tab-grp">
+                        </span>
+                        <span class="book-tab" id="registered-tab-grp">
+                        </span>
+                    </div>
+                    <div class="tab-contents-grp">
+                        <div class=""></div>
+                    </div> -->
                 </div>
 
             </div>
