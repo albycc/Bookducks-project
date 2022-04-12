@@ -17,7 +17,6 @@ async function loadBookData(){
     book = attributes;
     const bookType = collection[0].toUpperCase() + collection.slice(1, collection.length-1)
 
-    const authorString = book.authors.data.map(b => b.attributes.name).join(", ");
     const genreString = book.genres.data.map(b => b.attributes.name).join(", ");
 
     // console.log(bookType)
@@ -40,7 +39,8 @@ async function loadBookData(){
 
                 <span>${book.avgScore}</span>
             </span>
-            <p>${authorString}</p>
+            <p>${book.authors}</p>
+            ${collection == "audiobooks" ? "<p>Narrated by: " + book.narratedBy + "</p>": ""}
             <p>Published date: ${book.datePublished}</p>
             <button id="loan-btn"></button>
             <p>description</p>
@@ -49,7 +49,7 @@ async function loadBookData(){
 
             </div>
         </div>
-    `
+    `;
 
     $('.book-container').append(container);
     const loanBtn = $('#loan-btn');

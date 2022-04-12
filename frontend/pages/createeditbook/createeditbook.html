@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <div class="header-footer-layout" id="bookpage-container">
+        <header>
+            <span class="header-icon">
+                <a href="../../index.html">
+                    <img src="../../img/icons/dukk.svg" alt="" class="header-icon">
+                </a>
+            </span>
+
+            <span id="login-section">
+                <a href="../logincreateaccount/login.html" class="hide-visible" id="login-link">Login</a>
+                <span id="profile-link-section" class="hide-visible">
+                    <a href="../userprofile/userprofile.html" id="profile-link"></a>
+                    <a href="../../index.html" id="logout-btn">Logout</a>
+                </span>
+            </span>
+
+        </header>
+
+        <main>
+            <div class="mainpage-container mainpage-background-lightcyan">
+                <div class="pageinfo-container">
+                    <div class="flex-column center">
+                        <h1>Register book</h1>
+                        <form action="" class="form-style">
+                            <ul>
+                                <li>
+                                    <input type="radio" name="type-radio-grp" id="book-radio" checked>
+                                    <label for="book-radio">Book</label>
+                                    <input type="radio" name="type-radio-grp" id="audiobook-radio">
+                                    <label for="audiobook-radio">Audiobook</label>
+                                </li>
+                                <li>
+                                    <input type="file" name="type-radio-grp" id="audiobook-radio">
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="input-field-name">Title</label>
+                                        <input type="text" name="input-field-name" id="input-field-name">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="input-field-date">Date published</label>
+                                        <input type="text" name="input-field-date" id="input-field-date">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="input-field-isbn">ISBN</label>
+                                        <input type="text" name="input-field-isbn" id="input-field-isbn">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="genre-option">Genres</label>
+                                        <select value="" id="genre-option" multiple></select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="textarea-description">Description</label>
+                                        <textarea name="textarea-description" id="textarea-description" cols="30" rows="10"></textarea>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="input-field-authors">Authors</label>
+                                        <input type="text" name="input-field-authors" id="input-field-authors">
+                                    </div>
+                                </li>
+                                <input type="submit" value="Create">
+                            </ul>
+                        </form>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../../js/main.js"></script>
+    
+</body>
+</html>
