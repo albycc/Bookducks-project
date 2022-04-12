@@ -90,6 +90,10 @@ $header-height:80px;
     visibility: hidden;
 }
 
+.hidden{
+    display:none;
+}
+
 .pageinfo-container{
     background-color: white;
     width:800px;
@@ -128,6 +132,7 @@ $header-height:80px;
     background-color: #D1FCFF;
 }
 
+$inputWidth:300px;
 .form-style{
     ul{
         list-style-type: none;
@@ -139,6 +144,11 @@ $header-height:80px;
                 }
                 input[type="text"]{
                     height:30px;
+                    width:$inputWidth;
+                }
+                textarea{
+                    width:$inputWidth;
+                    resize:vertical;
                 }
             }
         }

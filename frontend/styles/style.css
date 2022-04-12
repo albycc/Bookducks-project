@@ -64,6 +64,9 @@
 .hide-visible {
   visibility: hidden; }
 
+.hidden {
+  display: none; }
+
 .pageinfo-container {
   background-color: white;
   width: 800px;
@@ -101,6 +104,10 @@
     .form-style ul li .label-input-column label ~ * {
       display: block; }
     .form-style ul li .label-input-column input[type="text"] {
-      height: 30px; }
+      height: 30px;
+      width: 300px; }
+    .form-style ul li .label-input-column textarea {
+      width: 300px;
+      resize: vertical; }
 
 /*# sourceMappingURL=style.css.map */
