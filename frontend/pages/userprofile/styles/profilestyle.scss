@@ -30,6 +30,9 @@
     align-items: center;
     margin-top:70px;
     margin-bottom:30px;
+    h1{
+        color:white;
+    }
 }
 
 .about-info-container{
@@ -69,22 +72,54 @@
 
 }
 
-.book-tabs-row{
-    display:flex;
-    flex-direction: row;
-    margin-bottom: 40px;
-    
-    .book-tab-wrapper{
-        display: flex;
+.tab-container{
+    display:block;
+    text-align: center;
+
+    .book-tab{
+        display: none;
         flex-direction: column;
         align-items: center;
-        margin:0px 50px;
-        .book-tab{
-            margin:20px 10px;
+        margin:20px 10px;
+        font-size: 2em;
+        & ~ label{
+            display: inline-block;
+            margin:20px 50px;
             font-size: 2em;
+            cursor: pointer;
+            .book-tab-count {
+                display: block;
+                font-size: 2.2em;
+            }
         }
-        .book-tab-count{
-            font-size: 1.5em;
+        & ~ .tab-content{
+            display:none;
         }
+        &:checked + label{
+            text-decoration: underline;
+            & > .book-tab-count{
+                text-decoration: none;
+            }
+        }
+
     }
+    #loaned-tab.book-tab:checked ~ #books-loaned-tab-content.tab-content{
+        display: block;
+    }
+    #registered-tab.book-tab:checked ~ #books-registered-tab-content.tab-content{
+        display: block;
+    }
+
+
+
+    // .tabs-menu-row{
+    //     display:flex;
+    //     flex-direction: row;
+    //     margin-bottom: 40px;
+    //     justify-content: center;
+        
+    // }
+
+    // .tab-contents-grp{
+    // }
 }

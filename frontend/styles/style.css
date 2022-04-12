@@ -78,10 +78,10 @@
   min-height: 500px;
   padding: 50px; }
   .book-collection .book {
-    margin: 50px 50px;
-    box-shadow: 5px 5px 10px lightgrey; }
+    margin: 50px 50px; }
     .book-collection .book img {
       width: 180px;
-      height: auto; }
+      height: auto;
+      box-shadow: 5px 5px 10px lightgrey; }
 
 /*# sourceMappingURL=style.css.map */
