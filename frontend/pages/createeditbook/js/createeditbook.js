@@ -116,11 +116,11 @@ async function initFormula(){
     genreOptions.on('change', (e)=>{
         const genre = e.target.children[e.target.value-1]
 
-        if($(`span.option-value[value=${genre.value}]`).length >= 1){
+        if(genreValues.children(`[value=${genre.value}]`).length >= 1){
             return;
         }
 
-        const option = $(`<span class="option-value">${genre.textContent}</span>`);
+        const option = $(`<span class="option-value" value="${genre.value}">${genre.textContent}</span>`);
         option.val(genre.value)
 
         genreValues.append(option)
@@ -138,39 +138,7 @@ async function initFormula(){
 
 initFormula();
 
-// $('#add-author-btn').on('click', ()=>{
-//     const value = authorInputfield.val();
-//     authorInputfield.val("");
-
-//     if(value == ""){
-//         return;
-//     }
-
-//     const option = $(`<span class="option-value" value="${value}">${value}</span>`);
-//     authorsValues.append(option);
-//     option.on('click', (e)=>{
-//         option.remove();
-//     })
-
-// })
-
-// $('#add-narrator-btn').on('click', ()=>{
-//     const value = narrationsInputfield.val();
-//     narrationsInputfield.val("");
-
-//     if(value == ""){
-//         return;
-//     }
-
-//     const option = $(`<span class="option-value" value="${value}">${value}</span>`);
-//     narrationsValues.append(option);
-//     option.on('click', (e)=>{
-//         option.remove();
-//     })
-// })
-
 function addMultipleValueBehavior(button, inputfield, multipleValueContainer){
-    console.log(inputfield, multipleValueContainer)
     button.on('click', ()=>{
         const value = inputfield.val();
 
