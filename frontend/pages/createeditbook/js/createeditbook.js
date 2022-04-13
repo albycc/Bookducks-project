@@ -10,6 +10,9 @@ const authorInputfield = $('#input-field-authors')
 const narrationsValues = $('#narrations-values')
 const narrationsInputfield = $('#input-field-narrators')
 
+const coverInput = $('#cover-input');
+const preview = $('#book-cover') 
+
 
 $('[name="type-radio-grp"]').on('click', toggleRadioButtons)
 
@@ -23,19 +26,28 @@ function toggleRadioButtons(){
 $('#submit-btn').on('click', async (e)=>{
     e.preventDefault();
     console.log('create book function');
-    $('.input-field-errormessage').remove()
+    $('.input-field-errormessage').remove();
 
     //are required fields empty?
     const required = $('[required]').filter(function(){
         return this.value == "";
     })
 
+    //no cover image?
+    if(coverInput[0].files.length == 0){
+        console.log("missing cover image")
+        preview.addClass('error')
+        preview.next().text(`missing image click her to choose`)
+        return;
+    }
+    //missing fields?
     console.log(required)
     if(required.length >= 1){
         console.log('empty fields');
         required.after('<p class="input-field-errormessage">Empty field</p>')
         return;
     }
+
 
     
     const inputs = $('#form-input-list > li').not('[style="display: none;"]').find('[data-input]');
@@ -67,7 +79,7 @@ $('#submit-btn').on('click', async (e)=>{
     bookObject.genres = genreArray
 
     //get cover image
-    const image = $('#cover-input')[0].files[0];
+    const image = coverInput[0].files[0];
     const imgData = new FormData();
     console.log(image)
     imgData.append('files', image)
@@ -104,7 +116,6 @@ async function initFormula(){
     toggleRadioButtons();
     const today = new Date();
     $('#input-field-date').val(today.toISOString().slice(0, 10))
-    console.log(today.toISOString().slice(0, 10))
     // $('#input-field-date').val(new Date().toDateInputValue());
 
 
@@ -169,3 +180,14 @@ function addMultipleValueBehavior(button, inputfield, multipleValueContainer){
         })
     })
 }
+
+coverInput.on('change', (e)=>{
+    const bookCover = coverInput[0].files[0];
+
+    const reader = new FileReader();
+    reader.onload = function(event){
+        preview.attr('src', reader.result);
+        preview.next().remove();
+    };
+    reader.readAsDataURL(bookCover)
+})

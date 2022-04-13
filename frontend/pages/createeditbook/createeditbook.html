@@ -36,18 +36,35 @@
                             <ul id="form-input-list">
                                 <li>
                                     <div>
-                                        <input type="file" id="cover-input" required>
+                                        <input 
+                                            type="file" 
+                                            id="cover-input"
+                                            class="file-cover"
+                                        >
+                                        <label for="cover-input">
+                                            <img alt="" id="book-cover">
+                                            <span>click here <br>to add <br>cover image</span>
+                                        </label>
+                                    
                                     </div>
                                 </li>
                                 <li>
-                                    <div>
-                                        <input type="radio" name="type-radio-grp" id="book-radio" value="books" checked>
-                                        <label for="book-radio">Book</label>
+                                    <div class="flex-row flex-center">
                                         <input 
+                                            type="radio" 
+                                            name="type-radio-grp" 
+                                            id="book-radio" 
+                                            value="books"
+                                            class="tab-option" 
+                                            checked
+                                            >
+                                            <label for="book-radio">Book</label>
+                                            <input 
                                             type="radio" 
                                             name="type-radio-grp" 
                                             id="audiobook-radio" 
                                             value="audiobooks"
+                                            class="tab-option" 
                                         >
                                         <label for="audiobook-radio">Audiobook</label>
                                     </div>
@@ -73,7 +90,7 @@
                                                 name="input-field-authors" 
                                                 id="input-field-authors" 
                                             >
-                                            <input type="button" value="Add" id="add-author-btn">
+                                            <input type="button" value="+" id="add-author-btn" class="add-button">
                                         </div>
                                         <div class="multiple-values-option" id="authors-values" data-multiple-prop="authors">
                                             <!-- option values for authors goes here -->
@@ -89,7 +106,7 @@
                                             name="input-field-narrators" 
                                             id="input-field-narrators" 
                                             >
-                                        <input type="button" value="Add" id="add-narrator-btn">
+                                        <input type="button" value="+" id="add-narrator-btn" class="add-button">
                                     </div>
                                     <div class="multiple-values-option" id="narrations-values" data-multiple-prop="narratedBy">
                                         <!-- option values for authors goes here -->
@@ -168,7 +185,9 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <input type="submit" id="submit-btn">
+                                    <div class="flex-row flex-center">
+                                        <input type="submit" id="submit-btn">
+                                    </div>
                                 </li>
                             </ul>
                         </form>

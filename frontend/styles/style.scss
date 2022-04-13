@@ -134,18 +134,32 @@ $header-height:80px;
 }
 
 $inputWidth:300px;
+$inputHeight:35px;
 .form-style{
     ul{
         list-style-type: none;
+        input, select, textarea, button{
+            border:2px solid $inputBorderColour;
+            font-size: 1.3em;
+        }
         li{
             margin:30px auto;
             .label-input-column{
+                label{
+                    font-size: 1.6em;
+                }
                 label ~ *{
                     display: block;
                 }
-                input[type="text"]{
-                    height:30px;
+                input[type="text"], input[type="number"], input[type="date"], select{
+                    border-radius: 10px;
+                    height:$inputHeight;
                     width:$inputWidth;
+                    background-color: white;
+                    padding:0px 10px;
+                    &:hover{
+                        border-color: $inputHover;
+                    }
                 }
                 textarea{
                     width:$inputWidth;
@@ -160,6 +174,52 @@ $inputWidth:300px;
                 border-radius: 10px;
                 max-width:$inputWidth;
             }
+        }
+
+        .tab-option{
+            display: none;
+            & + label{
+                color:rgb(34, 59, 202);
+                cursor: pointer;
+                font-size: 1.8em;
+                margin:5px 30px;
+            }
+            &:checked + label{
+                text-decoration: underline;
+            }
+        }
+
+        .file-cover{
+            display: none;
+            border: none;
+            &::-webkit-file-upload-button{
+                visibility: hidden;
+            }
+            & + label{
+                position: relative;
+                cursor: pointer;
+                & > *{
+                    position: relative;
+                }
+                & > img{
+                    min-width:$inputWidth;
+                    max-width:$inputWidth;
+                    min-height:300px;
+                    border:2px dashed rgb(58, 58, 58);
+                    background-color: lightgray;
+                    & + span{
+                        position: absolute;
+                        display: flex;
+                        bottom:160px;
+                        font-size: 1.9em;
+                        text-align: center;
+                    }
+
+                    &.error{
+                        background-color: $lightRed;
+                    }
+                }
+            } 
         }
         .multiple-values-option{
             display: flex;
@@ -184,6 +244,20 @@ $inputWidth:300px;
             }
         }
 
+        .add-button{
+            position: relative;
+            color:rgb(59, 59, 59);
+            background-color: white;
+            border-radius: 50%;
+            width:30px;
+            height:30px;
+            &:hover{
+                cursor: pointer;
+                color:$inputHover;
+                border-color:$inputHover;
+            }
+           
+        }
 
         .main-message-container{
             .message-text{
