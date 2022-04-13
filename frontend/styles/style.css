@@ -99,15 +99,98 @@
 
 .form-style ul {
   list-style-type: none; }
+  .form-style ul input, .form-style ul select, .form-style ul textarea, .form-style ul button {
+    border: 2px solid #666666;
+    font-size: 1.3em; }
   .form-style ul li {
     margin: 30px auto; }
+    .form-style ul li .label-input-column label {
+      font-size: 1.6em; }
     .form-style ul li .label-input-column label ~ * {
       display: block; }
-    .form-style ul li .label-input-column input[type="text"] {
-      height: 30px;
-      width: 300px; }
+    .form-style ul li .label-input-column input[type="text"], .form-style ul li .label-input-column input[type="number"], .form-style ul li .label-input-column input[type="date"], .form-style ul li .label-input-column select {
+      border-radius: 10px;
+      height: 35px;
+      width: 300px;
+      background-color: white;
+      padding: 0px 10px; }
+      .form-style ul li .label-input-column input[type="text"]:hover, .form-style ul li .label-input-column input[type="number"]:hover, .form-style ul li .label-input-column input[type="date"]:hover, .form-style ul li .label-input-column select:hover {
+        border-color: #0f33a8; }
     .form-style ul li .label-input-column textarea {
       width: 300px;
       resize: vertical; }
+    .form-style ul li .input-field-errormessage {
+      padding: 5px 15px;
+      margin: 1px 0px;
+      background-color: #ff8686;
+      font-size: 1.2em;
+      border-radius: 10px;
+      max-width: 300px; }
+  .form-style ul .tab-option {
+    display: none; }
+    .form-style ul .tab-option + label {
+      color: #223bca;
+      cursor: pointer;
+      font-size: 1.8em;
+      margin: 5px 30px; }
+    .form-style ul .tab-option:checked + label {
+      text-decoration: underline; }
+  .form-style ul .file-cover {
+    display: none;
+    border: none; }
+    .form-style ul .file-cover::-webkit-file-upload-button {
+      visibility: hidden; }
+    .form-style ul .file-cover + label {
+      position: relative;
+      cursor: pointer; }
+      .form-style ul .file-cover + label > * {
+        position: relative; }
+      .form-style ul .file-cover + label > img {
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 300px;
+        border: 2px dashed #3a3a3a;
+        background-color: lightgray; }
+        .form-style ul .file-cover + label > img + span {
+          position: absolute;
+          display: flex;
+          bottom: 160px;
+          font-size: 1.9em;
+          text-align: center; }
+        .form-style ul .file-cover + label > img.error {
+          background-color: #ff8686; }
+  .form-style ul .multiple-values-option {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px; }
+    .form-style ul .multiple-values-option .option-value {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 5px;
+      margin-left: 1px;
+      margin-right: 8px;
+      line-height: 40px;
+      width: 100;
+      background-color: white; }
+      .form-style ul .multiple-values-option .option-value:hover {
+        cursor: pointer;
+        color: #ff8686;
+        border-color: #ff8686; }
+  .form-style ul .add-button {
+    position: relative;
+    color: #3b3b3b;
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px; }
+    .form-style ul .add-button:hover {
+      cursor: pointer;
+      color: #0f33a8;
+      border-color: #0f33a8; }
+  .form-style ul .main-message-container .message-text {
+    padding: 20px;
+    font-size: 1.5em; }
+  .form-style ul .main-message-container .color-green {
+    background-color: #a1f886; }
 
 /*# sourceMappingURL=style.css.map */
