@@ -32,7 +32,7 @@
                 <div class="pageinfo-container">
                     <div class="flex-column center">
                         <h1>Register book</h1>
-                        <form action="" class="form-style">
+                        <form action="" class="form-style" id="createbook-form">
                             <ul id="form-input-list">
                                 <li>
                                     <div>
@@ -49,7 +49,7 @@
                                 </li>
                                 <li>
                                     <div>
-                                        <input type="file" id="cover-input" data-input="cover" required>
+                                        <input type="file" id="cover-input" required>
                                     </div>
                                 </li>
                                 <li>
@@ -89,7 +89,13 @@
                                 <li>
                                     <div class="label-input-column">
                                         <label for="genre-option">Genres</label>
-                                        <select id="genre-option" data-input="genres"></select>
+                                        <select 
+                                            id="genre-option" 
+                                            name="genre-option" 
+                                        ></select>
+                                        <div class="multiple-values-option" id="genres-values">
+                                            <!-- option values for genres goes here -->
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
@@ -108,12 +114,17 @@
                                 <li>
                                     <div class="label-input-column">
                                         <label for="input-field-authors">Authors</label>
-                                        <input 
-                                            type="text" 
-                                            name="input-field-authors" 
-                                            id="input-field-authors" 
-                                            data-input="authors"
-                                        >
+                                        <div>
+                                            <input 
+                                                type="text" 
+                                                name="input-field-authors" 
+                                                id="input-field-authors" 
+                                            >
+                                            <input type="button" value="Add" id="add-author-btn">
+                                        </div>
+                                        <div class="multiple-values-option" id="authors-values" data-multiple-prop="authors">
+                                            <!-- option values for authors goes here -->
+                                        </div>
                                     </div>
                                     <li data-radio="books">
                                         <div class="label-input-column">
@@ -142,12 +153,17 @@
                                     <li data-radio="audiobooks">
                                         <div class="label-input-column">
                                             <label for="input-field-narrators">Narrated by</label>
-                                            <input 
-                                                type="text" 
-                                                name="input-field-narrators" 
-                                                id="input-field-narrators" 
-                                                data-input="narratedBy"
-                                                >
+                                            <div>
+                                                <input 
+                                                    type="text" 
+                                                    name="input-field-narrators" 
+                                                    id="input-field-narrators" 
+                                                    >
+                                                <input type="button" value="Add" id="add-narrator-btn">
+                                            </div>
+                                            <div class="multiple-values-option" id="narrations-values" data-multiple-prop="narratedBy">
+                                                <!-- option values for authors goes here -->
+                                            </div>
                                         </div>
                                     </li>
                                 </li>

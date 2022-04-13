@@ -152,6 +152,27 @@ $inputWidth:300px;
                 }
             }
         }
+        .multiple-values-option{
+            display: flex;
+            flex-wrap:wrap;
+            margin:10px;
+            .option-value{
+                border:1px solid black;
+                border-radius: 2px;
+                padding:2px;
+                margin-left:1px;
+                margin-right:8px;
+                line-height:40px;
+                width:100;
+                background-color: white;
+                &:hover{
+                    cursor: pointer;
+                }
+                
+    
+            }
+        }
     }
+
 }
 

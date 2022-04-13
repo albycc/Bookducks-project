@@ -109,5 +109,20 @@
     .form-style ul li .label-input-column textarea {
       width: 300px;
       resize: vertical; }
+  .form-style ul .multiple-values-option {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px; }
+    .form-style ul .multiple-values-option .option-value {
+      border: 1px solid black;
+      border-radius: 2px;
+      padding: 2px;
+      margin-left: 1px;
+      margin-right: 8px;
+      line-height: 40px;
+      width: 100;
+      background-color: white; }
+      .form-style ul .multiple-values-option .option-value:hover {
+        cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
