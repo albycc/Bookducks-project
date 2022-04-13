@@ -32,8 +32,13 @@
                 <div class="pageinfo-container">
                     <div class="flex-column center">
                         <h1>Register book</h1>
-                        <form action="" class="form-style" id="createbook-form">
+                        <form class="form-style" id="createbook-form">
                             <ul id="form-input-list">
+                                <li>
+                                    <div>
+                                        <input type="file" id="cover-input" required>
+                                    </div>
+                                </li>
                                 <li>
                                     <div>
                                         <input type="radio" name="type-radio-grp" id="book-radio" value="books" checked>
@@ -48,11 +53,6 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div>
-                                        <input type="file" id="cover-input" required>
-                                    </div>
-                                </li>
-                                <li>
                                     <div class="label-input-column">
                                         <label for="input-field-title">Title*</label>
                                         <input 
@@ -62,53 +62,6 @@
                                             data-input="title"
                                             required
                                         >
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="label-input-column">
-                                        <label for="input-field-date">Date published</label>
-                                        <input 
-                                            type="date" 
-                                            name="input-field-date" 
-                                            id="input-field-date" 
-                                            data-input="datePublished"
-                                        >
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="label-input-column">
-                                        <label for="input-field-isbn">ISBN</label>
-                                        <input 
-                                            type="text" 
-                                            name="input-field-isbn" 
-                                            id="input-field-isbn" 
-                                            data-input="isbn"
-                                            >
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="label-input-column">
-                                        <label for="genre-option">Genres</label>
-                                        <select 
-                                            id="genre-option" 
-                                            name="genre-option" 
-                                        ></select>
-                                        <div class="multiple-values-option" id="genres-values">
-                                            <!-- option values for genres goes here -->
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="label-input-column">
-                                        <label for="textarea-description">Description</label>
-                                        <textarea 
-                                            name="textarea-description" 
-                                            id="textarea-description" 
-                                            cols="30" 
-                                            rows="10" 
-                                            data-input="description"
-                                        >
-                                        </textarea>
                                     </div>
                                 </li>
                                 <li>
@@ -126,49 +79,96 @@
                                             <!-- option values for authors goes here -->
                                         </div>
                                     </div>
-                                    <li data-radio="books">
-                                        <div class="label-input-column">
-                                            <label for="input-field-pages">Page count</label>
-                                            <input 
-                                                type="number" 
-                                                name="input-field-pages" 
-                                                id="input-field-pages" 
-                                                data-input="nrPages" 
-                                                data-radio="books"
+                                </li>
+                                <li data-radio="audiobooks">
+                                    <div class="label-input-column">
+                                    <label for="input-field-narrators">Narrated by</label>
+                                    <div>
+                                        <input 
+                                        type="text" 
+                                            name="input-field-narrators" 
+                                            id="input-field-narrators" 
                                             >
+                                        <input type="button" value="Add" id="add-narrator-btn">
+                                    </div>
+                                    <div class="multiple-values-option" id="narrations-values" data-multiple-prop="narratedBy">
+                                        <!-- option values for authors goes here -->
+                                    </div>
+                                </div>
+                            </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="genre-option">Genres</label>
+                                        <select 
+                                            id="genre-option" 
+                                            name="genre-option" 
+                                        ></select>
+                                        <div class="multiple-values-option" id="genres-values">
+                                            <!-- option values for genres goes here -->
                                         </div>
-                                    </li>
-                                    <li data-radio="audiobooks">
-                                        <div class="label-input-column">
-                                            <label for="input-field-length">Length</label>
-                                            <input 
-                                                type="number" 
-                                                name="input-field.length" 
-                                                id="input-field.length" 
-                                                data-input="length" 
-                                                data-radio="audiobooks"
-                                            >
-                                        </div>
-                                    </li>
-                                    <li data-radio="audiobooks">
-                                        <div class="label-input-column">
-                                            <label for="input-field-narrators">Narrated by</label>
-                                            <div>
-                                                <input 
-                                                    type="text" 
-                                                    name="input-field-narrators" 
-                                                    id="input-field-narrators" 
-                                                    >
-                                                <input type="button" value="Add" id="add-narrator-btn">
-                                            </div>
-                                            <div class="multiple-values-option" id="narrations-values" data-multiple-prop="narratedBy">
-                                                <!-- option values for authors goes here -->
-                                            </div>
-                                        </div>
-                                    </li>
+                                    </div>
                                 </li>
                                 <li>
-                                    <button id="submit-btn">Create</button>
+                                    <div class="label-input-column">
+                                        <label for="input-field-date">Date published</label>
+                                        <input 
+                                            type="date" 
+                                            name="input-field-date" 
+                                            id="input-field-date" 
+                                            data-input="datePublished"
+                                        >
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="textarea-description">Description</label>
+                                        <textarea 
+                                        name="textarea-description" 
+                                        id="textarea-description" 
+                                        cols="30" 
+                                            rows="10" 
+                                            data-input="description"
+                                        >
+                                    </textarea>
+                                </div>
+                            </li>
+                            <li data-radio="books">
+                                <div class="label-input-column">
+                                    <label for="input-field-pages">Page count</label>
+                                    <input 
+                                    type="number" 
+                                    name="input-field-pages" 
+                                    id="input-field-pages" 
+                                    data-input="nrPages" 
+                                    data-radio="books"
+                                    >
+                                    </div>
+                                </li>
+                                <li data-radio="audiobooks">
+                                    <div class="label-input-column">
+                                        <label for="input-field-length">Length</label>
+                                        <input 
+                                        type="number" 
+                                            name="input-field.length" 
+                                            id="input-field.length" 
+                                            data-input="length" 
+                                            data-radio="audiobooks"
+                                            >
+                                        </div>
+                                    </li>
+                                <li>
+                                    <div class="label-input-column">
+                                        <label for="input-field-isbn">ISBN</label>
+                                        <input 
+                                            type="text" 
+                                            name="input-field-isbn" 
+                                            id="input-field-isbn" 
+                                            data-input="isbn"
+                                            >
+                                    </div>
+                                </li>
+                                <li>
+                                    <input type="submit" id="submit-btn">
                                 </li>
                             </ul>
                         </form>

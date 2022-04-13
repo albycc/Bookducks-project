@@ -1,3 +1,4 @@
+@import './_partials/variables.scss';
 
 $header-height:80px;
 
@@ -151,6 +152,14 @@ $inputWidth:300px;
                     resize:vertical;
                 }
             }
+            .input-field-errormessage{
+                padding:5px 15px;
+                margin:1px 0px;
+                background-color: $lightRed;
+                font-size: 1.2em;
+                border-radius: 10px;
+                max-width:$inputWidth;
+            }
         }
         .multiple-values-option{
             display: flex;
@@ -158,8 +167,8 @@ $inputWidth:300px;
             margin:10px;
             .option-value{
                 border:1px solid black;
-                border-radius: 2px;
-                padding:2px;
+                border-radius: 5px;
+                padding:5px;
                 margin-left:1px;
                 margin-right:8px;
                 line-height:40px;
@@ -167,9 +176,23 @@ $inputWidth:300px;
                 background-color: white;
                 &:hover{
                     cursor: pointer;
+                    color:$lightRed;
+                    border-color: $lightRed;
                 }
                 
     
+            }
+        }
+
+
+        .main-message-container{
+            .message-text{
+                padding:20px;
+                font-size: 1.5em;
+            }
+
+            .color-green{
+                background-color: $lightGreen;
             }
         }
     }

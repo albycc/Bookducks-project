@@ -109,20 +109,34 @@
     .form-style ul li .label-input-column textarea {
       width: 300px;
       resize: vertical; }
+    .form-style ul li .input-field-errormessage {
+      padding: 5px 15px;
+      margin: 1px 0px;
+      background-color: #ff8686;
+      font-size: 1.2em;
+      border-radius: 10px;
+      max-width: 300px; }
   .form-style ul .multiple-values-option {
     display: flex;
     flex-wrap: wrap;
     margin: 10px; }
     .form-style ul .multiple-values-option .option-value {
       border: 1px solid black;
-      border-radius: 2px;
-      padding: 2px;
+      border-radius: 5px;
+      padding: 5px;
       margin-left: 1px;
       margin-right: 8px;
       line-height: 40px;
       width: 100;
       background-color: white; }
       .form-style ul .multiple-values-option .option-value:hover {
-        cursor: pointer; }
+        cursor: pointer;
+        color: #ff8686;
+        border-color: #ff8686; }
+  .form-style ul .main-message-container .message-text {
+    padding: 20px;
+    font-size: 1.5em; }
+  .form-style ul .main-message-container .color-green {
+    background-color: #a1f886; }
 
 /*# sourceMappingURL=style.css.map */

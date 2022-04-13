@@ -21,14 +21,19 @@ function toggleRadioButtons(){
 
 
 $('#submit-btn').on('click', async (e)=>{
-    console.log('create book function');
     e.preventDefault();
+    console.log('create book function');
+    $('.input-field-errormessage').remove()
 
     //are required fields empty?
-    const required = $('[required]');
-    if(required.val() == ""){
+    const required = $('[required]').filter(function(){
+        return this.value == "";
+    })
+
+    console.log(required)
+    if(required.length >= 1){
         console.log('empty fields');
-        console.log(required)
+        required.after('<p class="input-field-errormessage">Empty field</p>')
         return;
     }
 
@@ -88,6 +93,9 @@ $('#submit-btn').on('click', async (e)=>{
     .then(response =>{
         console.log(response)
     })
+    .catch(error =>{
+        console.log(error.message)
+    })
 
 })
 
@@ -109,6 +117,9 @@ async function initFormula(){
         data.forEach(g =>{
             const option = $(`<option value="${g.id}">${g.attributes.name}</option>`)
             genreOptions.append(option)
+            option.on('click', ()=>{
+                console.log('click')
+            })
         })
 
     })
@@ -121,7 +132,7 @@ async function initFormula(){
         }
 
         const option = $(`<span class="option-value" value="${genre.value}">${genre.textContent}</span>`);
-        option.val(genre.value)
+        option.val(genre.value);
 
         genreValues.append(option)
 
@@ -145,12 +156,11 @@ function addMultipleValueBehavior(button, inputfield, multipleValueContainer){
         if(multipleValueContainer.children(`[value="${value}"]`).length >= 1){
             return;
         }
-        console.log('add')
-        inputfield.val("");
-    
         if(value == ""){
             return;
         }
+        inputfield.val("");
+    
     
         const option = $(`<span class="option-value" value="${value}">${value}</span>`);
         multipleValueContainer.append(option);
