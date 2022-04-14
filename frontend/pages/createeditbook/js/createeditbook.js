@@ -23,7 +23,7 @@ function toggleRadioButtons(){
 }
 
 
-$('#submit-btn').on('click', async (e)=>{
+$('#createbook-form').on('submit', async (e)=>{
     e.preventDefault();
     console.log('create book function');
     $('.input-field-errormessage').remove();
@@ -84,11 +84,11 @@ $('#submit-btn').on('click', async (e)=>{
     console.log(image)
     imgData.append('files', image)
 
-    console.log(bookObject);
+    console.log(imgData);
 
     await axios.post('http://localhost:1337/api/upload', imgData ,{
         headers:{
-            Authorization: `Bearer ${userData.jwt}`
+            Authorization:`Bearer ${userData.jwt}`,
         }
     })
     .then(response =>{
@@ -181,11 +181,11 @@ function addMultipleValueBehavior(button, inputfield, multipleValueContainer){
     })
 }
 
-coverInput.on('change', (e)=>{
+coverInput.on('change', ()=>{
     const bookCover = coverInput[0].files[0];
 
     const reader = new FileReader();
-    reader.onload = function(event){
+    reader.onload = function(){
         preview.attr('src', reader.result);
         preview.next().remove();
     };
