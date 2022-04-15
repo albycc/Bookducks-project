@@ -34,11 +34,11 @@
     display: flex;
     flex-wrap: nowrap; }
     .book-section .book-row .book-container {
-      margin: 10px 20px;
-      box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3); }
+      margin: 10px 20px; }
       .book-section .book-row .book-container img {
-        width: auto;
-        height: 250px; }
+        width: 200px;
+        height: auto;
+        box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3); }
 
 .flex-row {
   display: flex;

@@ -48,11 +48,11 @@ $header-height:80px;
 
         .book-container{
             margin:10px 20px;
-            box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
-
+            
             img{
-                width:auto;
-                height:250px;
+                width:200px;
+                height:auto;
+                box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
             }
         }
     }

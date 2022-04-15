@@ -4,64 +4,54 @@ const bookRowPopular = $('#popular-books-row');
 const bookRowFantasy = $('#fantasy-books-row')
 const bookRowScifi = $('#scifi-books-row')
 
-console.log(bookRowPopular)
-
 async function populateBookrows(){
 
-    console.log(userData)
 
-    const books = await axios.get('http://localhost:1337/api/books?populate=*');
-    const audiobooks = await axios.get('http://localhost:1337/api/audiobooks?populate=*');
-
-    console.log(books)
-
-    const bookList = [...books.data.data, ...audiobooks.data.data]
-
-    const trendingBooks = bookList.sort((a,b) => b.attributes.avgScore - a.attributes.avgScore).slice(0, 5);
-
-    // const fantasyBooks = bookList.filter(b => b.attributes.genres.data.find(g => g.attributes.name == "fantasy"))
-
-    console.log(bookList)
     
-    trendingBooks.forEach(book => {
-        const bookCoverURL = book.attributes.cover.data.attributes.url;
-        if(bookCoverURL){
-            bookRowPopular.append(bookRowItemContainer(book));
-        }
-        else{
-            console.log('Warning! Book missing cover');
-        }
-        
+
+    // const trendingBooks = [...books, ...audiobooks].sort((a,b) => b.attributes.avgScore - a.attributes.avgScore).slice(0, 5);
+
+    const {data:{data:{attributes:trendingCollection}}} = await axios.get('http://localhost:1337/api/trending-book?populate[books][populate]=*&populate[audiobooks][populate]=*')
+
+
+    const {data:{data:{attributes:fantasyCollection}}} = await axios.get('http://localhost:1337/api/fantasy?populate[books][populate]=*&populate[audiobooks][populate]=*')
+    const {data:{data:{attributes:scifiCollection}}} = await axios.get('http://localhost:1337/api/scifi?populate[books][populate]=*&populate[audiobooks][populate]=*')
+
+    
+    const trendingBooks = [...trendingCollection.audiobooks.data, ...trendingCollection.books.data].sort((a,b) => b.attributes.avgScore - a.attributes.avgScore)
+    const scifiBooks = [...scifiCollection.audiobooks.data, ...scifiCollection.books.data].sort((a,b) => b.attributes.avgScore - a.attributes.avgScore)
+    const fantasyBooks = [...fantasyCollection.audiobooks.data, ...fantasyCollection.books.data].sort((a,b) => b.attributes.avgScore - a.attributes.avgScore)
+
+    populateRow(trendingBooks, bookRowPopular)
+    populateRow(fantasyBooks, bookRowFantasy);
+    populateRow(scifiBooks, bookRowScifi)
+    
+}
+
+function populateRow(list, rowElement){
+    list.forEach(book => {
+        rowElement.append(bookRowItemContainer(book));
     });
-    
-    bookList.forEach(book =>{
-
-        if(containsGenre('fantasy')){
-            bookRowFantasy.append(bookRowItemContainer(book));
-        }
-        else if(containsGenre('sci-fi')){
-            bookRowScifi.append(bookRowItemContainer(book));
-        }
-
-        function containsGenre(genre){
-            return book.attributes.genres.data.find(b => b.attributes.name == genre) || false;
-        }
-    })
-
-
-
 
 }
 
-const bookRowItemContainer = (item) => {
+async function getBookCollection(apiURL){
+    const {data:{data}} = await axios.get(apiURL);
+    return data
+}
 
+const bookRowItemContainer = (bookItem) => {
+
+    console.log(bookItem)
     //what type of book?
-    const collection = item.attributes.hasOwnProperty("nrPages") ? "books" : "audiobooks";
+    const itemIDobject = Object.assign({}, bookItem.attributes.itemID.split('_'))
+    
+    console.log(itemIDobject)
 
     return $(`
     <div class="book-container">
-        <a href="./pages/bookinfo/bookinfo.html?id=${item.id}&collection=${collection}">
-            <img src="http://localhost:1337${item.attributes.cover.data.attributes.url}">
+        <a href="./pages/bookinfo/bookinfo.html?id=${bookItem.id}&collection=${itemIDobject['1']}">
+            <img src="http://localhost:1337${bookItem.attributes.cover.data.attributes.url}">
         </a>
     </div>`)
 }

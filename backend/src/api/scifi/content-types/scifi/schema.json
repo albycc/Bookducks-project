@@ -1,13 +1,13 @@
 {
   "kind": "singleType",
-  "collectionName": "book_collections",
+  "collectionName": "scifis",
   "info": {
-    "singularName": "book-collection",
-    "pluralName": "book-collections",
-    "displayName": "bookCollection"
+    "singularName": "scifi",
+    "pluralName": "scifis",
+    "displayName": "Scifi"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
