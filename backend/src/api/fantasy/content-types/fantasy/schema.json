@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "fantasies",
+  "info": {
+    "singularName": "fantasy",
+    "pluralName": "fantasies",
+    "displayName": "fantasy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "audiobooks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook"
+    },
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book"
+    }
+  }
+}

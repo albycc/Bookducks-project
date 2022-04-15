@@ -58,6 +58,11 @@
     },
     "narratedBy": {
       "type": "string"
+    },
+    "itemID": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

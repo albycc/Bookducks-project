@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "trending_books",
+  "info": {
+    "singularName": "trending-book",
+    "pluralName": "trending-books",
+    "displayName": "TrendingBook"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "audiobooks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook"
+    },
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book"
+    }
+  }
+}

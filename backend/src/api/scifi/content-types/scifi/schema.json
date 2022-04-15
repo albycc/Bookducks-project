@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "scifis",
+  "info": {
+    "singularName": "scifi",
+    "pluralName": "scifis",
+    "displayName": "Scifi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "audiobooks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook"
+    },
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book"
+    }
+  }
+}
