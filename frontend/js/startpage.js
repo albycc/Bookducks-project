@@ -42,15 +42,20 @@ async function getBookCollection(apiURL){
 
 const bookRowItemContainer = (bookItem) => {
 
-    console.log(bookItem)
     //what type of book?
-    const itemIDobject = Object.assign({}, bookItem.attributes.itemID.split('_'))
+
+    let arr = bookItem.attributes.itemID.split('_');
+
+    const itemIDobject = {
+        item:arr[0],
+        type:arr[1],
+        id:arr[2]
+    }
     
-    console.log(itemIDobject)
 
     return $(`
     <div class="book-container">
-        <a href="./pages/bookinfo/bookinfo.html?id=${bookItem.id}&collection=${itemIDobject['1']}">
+        <a href="./pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
             <img src="http://localhost:1337${bookItem.attributes.cover.data.attributes.url}">
         </a>
     </div>`)
