@@ -4,6 +4,8 @@ const bookRowPopular = $('#popular-books-row');
 const bookRowFantasy = $('#fantasy-books-row')
 const bookRowScifi = $('#scifi-books-row')
 
+const searchField = $('#search-field');
+
 async function populateBookrows(){
 
 
@@ -35,11 +37,6 @@ function populateRow(list, rowElement){
 
 }
 
-async function getBookCollection(apiURL){
-    const {data:{data}} = await axios.get(apiURL);
-    return data
-}
-
 const bookRowItemContainer = (bookItem) => {
 
     //what type of book?
@@ -60,5 +57,9 @@ const bookRowItemContainer = (bookItem) => {
         </a>
     </div>`)
 }
+
+$('#search-btn').on('click', ()=>{
+    location.href = `./pages/search/search.html?query=${searchField.val().toLowerCase()}`
+})
 
 populateBookrows();

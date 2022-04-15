@@ -33,12 +33,13 @@
   .book-section .book-row {
     display: flex;
     flex-wrap: nowrap; }
-    .book-section .book-row .book-container {
-      margin: 10px 20px; }
-      .book-section .book-row .book-container img {
-        width: 200px;
-        height: auto;
-        box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3); }
+
+.book-container {
+  margin: 10px 20px; }
+  .book-container img {
+    width: 200px;
+    height: auto;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3); }
 
 .flex-row {
   display: flex;
