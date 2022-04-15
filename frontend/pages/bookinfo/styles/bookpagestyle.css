@@ -47,4 +47,9 @@ main.bookpage-main {
     border-radius: 10px;
     padding: 30px; }
 
+.user-loaned-box {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #ff7f7f; }
+
 /*# sourceMappingURL=bookpagestyle.css.map */
