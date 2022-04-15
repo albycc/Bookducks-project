@@ -4,10 +4,11 @@
   "info": {
     "singularName": "fantasy",
     "pluralName": "fantasies",
-    "displayName": "fantasy"
+    "displayName": "FantasyBookRow",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "book-collection",
     "pluralName": "book-collections",
-    "displayName": "BookCollection"
+    "displayName": "bookCollection"
   },
   "options": {
     "draftAndPublish": false
