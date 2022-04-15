@@ -1,10 +1,11 @@
 {
   "kind": "singleType",
-  "collectionName": "book_collections",
+  "collectionName": "fantasies",
   "info": {
-    "singularName": "book-collection",
-    "pluralName": "book-collections",
-    "displayName": "bookCollection"
+    "singularName": "fantasy",
+    "pluralName": "fantasies",
+    "displayName": "FantasyBookRow",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false

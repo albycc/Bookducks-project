@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "book_collections",
+  "collectionName": "trending_books",
   "info": {
-    "singularName": "book-collection",
-    "pluralName": "book-collections",
-    "displayName": "bookCollection"
+    "singularName": "trending-book",
+    "pluralName": "trending-books",
+    "displayName": "TrendingBook"
   },
   "options": {
     "draftAndPublish": false

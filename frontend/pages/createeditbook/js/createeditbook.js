@@ -75,8 +75,11 @@ $('#createbook-form').on('submit', async (e)=>{
     })
 
     //get genres
-    const genreArray = genreValues.children().toArray().map(option => option.value)
-    bookObject.genres = genreArray
+    const genreArray = genreValues.children().toArray().map(option => option.value);
+    bookObject.genres = genreArray;
+
+    //generate id
+    bookObject.itemID = await generateItemid();
 
     //get cover image
     const image = coverInput[0].files[0];
@@ -86,14 +89,30 @@ $('#createbook-form').on('submit', async (e)=>{
 
     console.log(imgData);
 
-    await axios.post('http://localhost:1337/api/upload', imgData ,{
-        headers:{
-            Authorization:`Bearer ${userData.jwt}`,
-        }
-    })
-    .then(response =>{
-        bookObject.cover = response.data[0].id
-        axios.post(`http://localhost:1337/api/${radioValue}`, {
+    // await axios.post('http://localhost:1337/api/upload', imgData ,{
+    //     headers:{
+    //         Authorization:`Bearer ${userData.jwt}`,
+    //     }
+    // })
+    // .then(response =>{
+    //     bookObject.cover = response.data[0].id
+    //     axios.post(`http://localhost:1337/api/${radioValue}`, {
+    //         data:bookObject
+    //     },
+    //     {
+    //         headers:{
+    //             Authorization:`Bearer ${userData.jwt}`
+    //         }
+    //     })
+    // })
+    // .then(response =>{
+    //     console.log(response)
+    // })
+    // .catch(error =>{
+    //     console.log(error.message)
+    // })
+
+    await axios.post(`http://localhost:1337/api/${radioValue}`, {
             data:bookObject
         },
         {
@@ -101,13 +120,6 @@ $('#createbook-form').on('submit', async (e)=>{
                 Authorization:`Bearer ${userData.jwt}`
             }
         })
-    })
-    .then(response =>{
-        console.log(response)
-    })
-    .catch(error =>{
-        console.log(error.message)
-    })
 
 })
 
@@ -132,7 +144,6 @@ async function initFormula(){
                 console.log('click')
             })
         })
-
     })
     
     genreOptions.on('change', (e)=>{
@@ -191,3 +202,13 @@ coverInput.on('change', ()=>{
     };
     reader.readAsDataURL(bookCover)
 })
+
+async function generateItemid(){
+    const {data:{data:list}} = await axios.get(`http://localhost:1337/api/${radioValue}`)
+
+    const idNumber = Math.max(...list.map(b => b.id)) + 1
+
+    let id = `b_${radioValue}_${idNumber}`
+    console.log(id)
+    return id;
+}
