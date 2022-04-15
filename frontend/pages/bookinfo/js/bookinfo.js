@@ -6,6 +6,8 @@ let bookId;
 let collection;
 let book;
 
+const bookpageContainer = $('#bookpage-container')
+
 async function loadBookData(){
     const params = new URLSearchParams(location.search)
     
@@ -54,16 +56,35 @@ async function loadBookData(){
     $('.book-container').append(container);
     const loanBtn = $('#loan-btn');
     
-    // is book already loaned?
+    // is user not logged in?
     if(userData == null){
         loanBtn.prop('disabled', true);
         loanBtn.text('Login to loan')
     }
+    //
     else{
-        book.loanedBy.data ? 
-            (loanBtn.text('Already loaned'), 
-            loanBtn.prop('disabled', true)) :
-            loanBtn.text('Loan');
+        //someone else if borrowing it?
+        if(book.loanedBy.data !== null){
+            if(book.loanedBy.data.attributes.username !== userData.user.username){
+                const loanersMessage = `<div class="user-loaned-box">
+                    <p>Already loaned by</p>
+                    <p>${book.loanedBy.data.attributes.username}</p>
+                    <p>Users email: ${book.loanedBy.data.attributes.email}</p>
+                </div>`
+
+                loanBtn.after(loanersMessage);
+                loanBtn.remove();
+
+                return;
+            }
+            //You're the loaner
+            else if(book.loanedBy.data.attributes.username === userData.user.username){
+                loanBtn.text('Retrieve');
+                loanBtn.on('click', retrieveBook)
+                return;
+            }
+        }
+        loanBtn.text('Loan');
         loanBtn.on('click', loanBook)
     }
 }
@@ -79,7 +100,7 @@ async function loanBook(){
 
     await axios.put(`http://localhost:1337/api/${collection}/${bookId}`, {
         data:{
-            loanedBy:1,
+            loanedBy:userData.user.id,
         }
     },
     {
@@ -100,9 +121,46 @@ async function loanBook(){
     `);
     popupContainer.append(popupMessage);
 
-    $('#bookpage-container').prepend(popupContainer);
+    bookpageContainer.prepend(popupContainer);
 
     $('#close-popup-btn').on('click', ()=>{
         location.reload();
     })
+}
+
+async function retrieveBook(){
+    await axios.put(`http://localhost:1337/api/${collection}/${bookId}`, {
+        data:{
+            loanedBy:null,
+        }
+    },
+    {
+        headers:{
+            Authorization: `Bearer ${userData.jwt}`,
+        }
+    })
+    .then(response =>{
+
+        console.log(response)
+        const popupContainer = $(`<div class="recipe-popup-container"></div>`);
+        const popupMessage = $('<div class="message-box"></div>');
+
+    
+        popupMessage.append(`
+            <h2>Thank you or reading ${response.data.data.attributes.title}!</h2>
+            <a href="../../index.html">Search more books<a>
+            <button id="close-popup-btn">Close</button>
+        `);
+    
+        popupContainer.append(popupMessage);
+    
+        bookpageContainer.prepend(popupContainer);
+    
+        $('#close-popup-btn').on('click', ()=>{
+            location.reload();
+        })
+
+    })
+
+
 }
