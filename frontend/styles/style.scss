@@ -158,6 +158,9 @@ $inputHeight:35px;
             &:hover{
                 cursor: pointer;
             }
+            &:disabled{
+                background-color: lightgray;
+            }
         }
         li{
             margin:30px auto;

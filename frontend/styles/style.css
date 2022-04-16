@@ -117,6 +117,8 @@
     width: 150px; }
     .form-style ul input[type="submit"]:hover, .form-style ul button:hover {
       cursor: pointer; }
+    .form-style ul input[type="submit"]:disabled, .form-style ul button:disabled {
+      background-color: lightgray; }
   .form-style ul li {
     margin: 30px auto; }
     .form-style ul li .label-input-column label {
