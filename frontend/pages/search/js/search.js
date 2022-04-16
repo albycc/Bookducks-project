@@ -56,11 +56,17 @@ const bookRowItemContainer = (bookItem) => {
         type:arr[1],
         id:arr[2]
     }
+
+    console.log(bookItem)
+
+    const url = bookItem.attributes.cover.data !== null ?
+    `http://localhost:1337${bookItem.attributes.cover.data.attributes.url}` :
+     "../../../img/missingCover.svg";
     
     return $(`
         <div class="book-container">
             <a href="../../pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
-                <img src="http://localhost:1337${bookItem.attributes.cover.data.attributes.url}">
+                <img src="${url}">
             </a>
         </div>`
     )

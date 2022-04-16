@@ -14,19 +14,22 @@ async function loadBookData(){
     bookId = params.get('id');
     collection = params.get('collection')
 
-    const {data:{data:{attributes}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
+    const {data:{data:{attributes:book}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
 
-    book = attributes;
     const bookType = collection[0].toUpperCase() + collection.slice(1, collection.length-1)
 
     const genreString = book.genres.data.map(b => b.attributes.name).join(", ");
 
-    // console.log(bookType)
+    console.log(book)
+
+    const url = book.cover.data !== null ?
+    `http://localhost:1337${book.cover.data.attributes.url}` :
+     "../../../img/missingCover.svg";
 
     const container =  `
         <div class="bookinfo-flexcolumn">
             <div class="book-cover">
-                <img src="http://localhost:1337${book.cover.data.attributes.url}" alt="" id="">
+                <img src="${url}" alt="" id="">
             </div>
             <div class="book-info-panel">
 

@@ -74,6 +74,18 @@
       "relation": "oneToMany",
       "target": "api::audiobook.audiobook",
       "mappedBy": "loanedBy"
+    },
+    "audiobooks_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audiobook.audiobook",
+      "mappedBy": "creator"
+    },
+    "books_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book",
+      "mappedBy": "creator"
     }
   }
 }

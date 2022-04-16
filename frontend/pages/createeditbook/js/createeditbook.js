@@ -23,7 +23,7 @@ function toggleRadioButtons(){
 }
 
 
-$('#createbook-form').on('submit', async (e)=>{
+$('#submit-btn').on('click', async (e)=>{
     e.preventDefault();
     console.log('create book function');
     $('.input-field-errormessage').remove();
@@ -41,15 +41,12 @@ $('#createbook-form').on('submit', async (e)=>{
         return;
     }
     //missing fields?
-    console.log(required)
     if(required.length >= 1){
         console.log('empty fields');
         required.after('<p class="input-field-errormessage">Empty field</p>')
         return;
     }
 
-
-    
     const inputs = $('#form-input-list > li').not('[style="display: none;"]').find('[data-input]');
     const multipleValues = $('#form-input-list > li').not('[style="display: none;"]').find('[data-multiple-prop]')
 
@@ -78,40 +75,85 @@ $('#createbook-form').on('submit', async (e)=>{
     const genreArray = genreValues.children().toArray().map(option => option.value);
     bookObject.genres = genreArray;
 
-    //generate id
-    bookObject.itemID = await generateItemid();
 
     //get cover image
     const image = coverInput[0].files[0];
     const imgData = new FormData();
-    console.log(image)
+
     imgData.append('files', image)
+
+    //register user as creator
+    bookObject.creator = userData.user.id
 
     console.log(imgData);
 
-    await axios.post('http://localhost:1337/api/upload', imgData ,{
-        headers:{
-            Authorization:`Bearer ${userData.jwt}`,
-        }
-    })
-    .then(response =>{
-        bookObject.cover = response.data[0].id
-        axios.post(`http://localhost:1337/api/${radioValue}`, {
+    // await axios.post('http://localhost:1337/api/upload', imgData ,{
+    //     headers:{
+    //         Authorization:`Bearer ${userData.jwt}`,
+    //     }
+    // })
+    // .then(response =>{
+    //     bookObject.cover = response.data[0].id
+    //     axios.post(`http://localhost:1337/api/${radioValue}`, {
+    //         data:bookObject
+    //     },
+    //     {
+    //         headers:{
+    //             Authorization:`Bearer ${userData.jwt}`
+    //         }
+    //     })
+    // })
+    // .then(response =>{
+    //     console.log(response)
+    // })
+    // .catch(error =>{
+    //     console.log(error.message)
+    // })
+
+    // const {data:img} = await axios.post('http://localhost:1337/api/upload', imgData ,{
+    //     headers:{
+    //         Authorization:`Bearer ${userData.jwt}`,
+    //     }
+    // })
+
+
+    const {data:{data:book}} = await axios.post(`http://localhost:1337/api/${radioValue}`, {
             data:bookObject
         },
         {
             headers:{
                 Authorization:`Bearer ${userData.jwt}`
             }
-        })
-    })
-    .then(response =>{
-        console.log(response)
-    })
-    .catch(error =>{
-        console.log(error.message)
-    })
+        }
+    )
 
+    const {data:{data:bookWithId}} = await axios.put(`http://localhost:1337/api/${radioValue}/${book.id}`, {
+            data:{
+                itemID:generateItemId(book, radioValue),
+            },
+        },
+        {
+            headers:{
+                Authorization:`Bearer ${userData.jwt}`
+            }
+        }
+    )
+
+    const {data:{data:list}} = await axios.get(`http://localhost:1337/api/book-collection?populate[${radioValue}][populate]=*`)
+
+    list.attributes[radioValue].data.push(bookWithId)
+
+    await axios.put('http://localhost:1337/api/book-collection', {
+            data:{
+                [radioValue]:list.attributes[radioValue].data,
+            }
+        },
+        {
+            headers:{
+                Authorization:`Bearer ${userData.jwt}`
+            }
+        }
+    )
 })
 
 async function initFormula(){
@@ -194,12 +236,9 @@ coverInput.on('change', ()=>{
     reader.readAsDataURL(bookCover)
 })
 
-async function generateItemid(){
-    const {data:{data:list}} = await axios.get(`http://localhost:1337/api/${radioValue}`)
+function generateItemId(bookItem, collection){
 
-    const idNumber = Math.max(...list.map(b => b.id)) + 1
 
-    let id = `b_${radioValue}_${idNumber}`
-    console.log(id)
+    let id = `b_${collection}_${bookItem.id}`
     return id;
 }
