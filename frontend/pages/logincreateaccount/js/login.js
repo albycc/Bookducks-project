@@ -46,7 +46,7 @@ async function login(e){
     })
 }
 
-export function printErrorMessage(message){
+function printErrorMessage(message){
     if(errorMessage.parent().hasClass('hide-visible')){
         errorMessage.parent().removeClass('hide-visible');
     }
