@@ -102,28 +102,38 @@
   list-style-type: none; }
   .form-style ul input, .form-style ul select, .form-style ul textarea, .form-style ul button {
     border: 2px solid #666666;
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    border-radius: 10px;
+    height: 35px;
+    width: 300px;
+    background-color: white;
+    padding: 0px 10px; }
+  .form-style ul input[type="submit"], .form-style ul button {
+    border: none;
+    background-color: #f7436a;
+    box-shadow: 3px 3px 6px #999999;
+    color: white;
+    height: 50px;
+    width: 150px; }
+    .form-style ul input[type="submit"]:hover, .form-style ul button:hover {
+      cursor: pointer; }
+    .form-style ul input[type="submit"]:disabled, .form-style ul button:disabled {
+      background-color: lightgray; }
   .form-style ul li {
     margin: 30px auto; }
     .form-style ul li .label-input-column label {
       font-size: 1.6em; }
     .form-style ul li .label-input-column label ~ * {
       display: block; }
-    .form-style ul li .label-input-column input[type="text"], .form-style ul li .label-input-column input[type="number"], .form-style ul li .label-input-column input[type="date"], .form-style ul li .label-input-column select {
-      border-radius: 10px;
-      height: 35px;
-      width: 300px;
-      background-color: white;
-      padding: 0px 10px; }
-      .form-style ul li .label-input-column input[type="text"]:hover, .form-style ul li .label-input-column input[type="number"]:hover, .form-style ul li .label-input-column input[type="date"]:hover, .form-style ul li .label-input-column select:hover {
-        border-color: #0f33a8; }
+    .form-style ul li .label-input-column input:hover, .form-style ul li .label-input-column select:hover {
+      border-color: #0f33a8; }
     .form-style ul li .label-input-column textarea {
       width: 300px;
       resize: vertical; }
     .form-style ul li .input-field-errormessage {
       padding: 5px 15px;
       margin: 1px 0px;
-      background-color: #ff8686;
+      background-color: #f56a6a;
       font-size: 1.2em;
       border-radius: 10px;
       max-width: 300px; }
@@ -159,7 +169,7 @@
           font-size: 1.9em;
           text-align: center; }
         .form-style ul .file-cover + label > img.error {
-          background-color: #ff8686; }
+          background-color: #f56a6a; }
   .form-style ul .multiple-values-option {
     display: flex;
     flex-wrap: wrap;
@@ -175,8 +185,8 @@
       background-color: white; }
       .form-style ul .multiple-values-option .option-value:hover {
         cursor: pointer;
-        color: #ff8686;
-        border-color: #ff8686; }
+        color: #f56a6a;
+        border-color: #f56a6a; }
   .form-style ul .add-button {
     position: relative;
     color: #3b3b3b;

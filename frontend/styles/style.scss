@@ -142,6 +142,25 @@ $inputHeight:35px;
         input, select, textarea, button{
             border:2px solid $inputBorderColour;
             font-size: 1.3em;
+            border-radius: 10px;
+            height:$inputHeight;
+            width:$inputWidth;
+            background-color: white;
+                    padding:0px 10px;
+        }
+        input[type="submit"], button{
+            border:none;
+            background-color:rgb(247, 67, 106);
+            box-shadow: 3px 3px 6px rgb(153, 153, 153);
+            color:white;
+            height:50px;
+            width:150px;
+            &:hover{
+                cursor: pointer;
+            }
+            &:disabled{
+                background-color: lightgray;
+            }
         }
         li{
             margin:30px auto;
@@ -152,12 +171,7 @@ $inputHeight:35px;
                 label ~ *{
                     display: block;
                 }
-                input[type="text"], input[type="number"], input[type="date"], select{
-                    border-radius: 10px;
-                    height:$inputHeight;
-                    width:$inputWidth;
-                    background-color: white;
-                    padding:0px 10px;
+                input, select{
                     &:hover{
                         border-color: $inputHover;
                     }
