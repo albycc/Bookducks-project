@@ -1,4 +1,5 @@
 @import './_partials/variables.scss';
+@import './popupwindow.scss';
 
 $header-height:80px;
 
@@ -138,32 +139,45 @@ $inputWidth:300px;
 $inputHeight:35px;
 .form-style{
     ul{
-        list-style-type: none;
-        input, select, textarea, button{
-            border:2px solid $inputBorderColour;
-            font-size: 1.3em;
-            border-radius: 10px;
-            height:$inputHeight;
-            width:$inputWidth;
-            background-color: white;
-                    padding:0px 10px;
-        }
-        input[type="submit"], button{
-            border:none;
-            background-color:rgb(247, 67, 106);
-            box-shadow: 3px 3px 6px rgb(153, 153, 153);
-            color:white;
-            height:50px;
-            width:150px;
-            &:hover{
-                cursor: pointer;
-            }
-            &:disabled{
-                background-color: lightgray;
-            }
-        }
         li{
             margin:30px auto;
+            list-style-type: none;
+            input, select, textarea, button{
+                border:2px solid $inputBorderColour;
+                font-size: 1.3em;
+                border-radius: 10px;
+                height:$inputHeight;
+                width:$inputWidth;
+                background-color: white;
+                        padding:0px 10px;
+            }
+            input[type="submit"], button{
+                border:none;
+                background-color:rgb(247, 67, 106);
+                box-shadow: 3px 3px 6px rgb(153, 153, 153);
+                color:white;
+                height:50px;
+                min-width:100px;
+                width:200px;
+                &:hover{
+                    cursor: pointer;
+                }
+                &:disabled{
+                    background-color: lightgray;
+                }
+            }
+            input[type="radio"], input[type="checkbox"]{
+                width:20px;
+                & + label{
+                    padding-left:15px;
+                    font-size: 1.4em;
+                }
+            }
+            .input-row{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
             .label-input-column{
                 label{
                     font-size: 1.6em;
@@ -189,102 +203,98 @@ $inputHeight:35px;
                 border-radius: 10px;
                 max-width:$inputWidth;
             }
-        }
-
-        .tab-option{
-            display: none;
-            & + label{
-                color:rgb(34, 59, 202);
-                cursor: pointer;
-                font-size: 1.8em;
-                margin:5px 30px;
+            .tab-option{
+                display: none;
+                & + label{
+                    color:rgb(34, 59, 202);
+                    cursor: pointer;
+                    font-size: 1.8em;
+                    margin:5px 30px;
+                }
+                &:checked + label{
+                    text-decoration: underline;
+                }
             }
-            &:checked + label{
-                text-decoration: underline;
-            }
-        }
-
-        .file-cover{
-            display: none;
-            border: none;
-            &::-webkit-file-upload-button{
-                visibility: hidden;
-            }
-            & + label{
-                position: relative;
-                cursor: pointer;
-                & > *{
+            .file-cover{
+                display: none;
+                border: none;
+                &::-webkit-file-upload-button{
+                    visibility: hidden;
+                }
+                & + label{
                     position: relative;
-                }
-                & > img{
-                    min-width:$inputWidth;
-                    max-width:$inputWidth;
-                    min-height:300px;
-                    border:2px dashed rgb(58, 58, 58);
-                    background-color: lightgray;
-                    & + span{
-                        position: absolute;
-                        display: flex;
-                        bottom:160px;
-                        font-size: 1.9em;
-                        text-align: center;
+                    cursor: pointer;
+                    & > *{
+                        position: relative;
                     }
-
-                    &.error{
-                        background-color: $lightRed;
+                    & > img{
+                        min-width:$inputWidth;
+                        max-width:$inputWidth;
+                        min-height:300px;
+                        border:2px dashed rgb(58, 58, 58);
+                        background-color: lightgray;
+                        & + span{
+                            position: absolute;
+                            display: flex;
+                            bottom:160px;
+                            font-size: 1.9em;
+                            text-align: center;
+                        }
+    
+                        &.error{
+                            background-color: $lightRed;
+                        }
                     }
+                } 
+            }
+            .multiple-values-option{
+                display: flex;
+                flex-wrap:wrap;
+                margin:10px;
+                .option-value{
+                    border:1px solid black;
+                    border-radius: 5px;
+                    padding:5px;
+                    margin-left:1px;
+                    margin-right:8px;
+                    line-height:40px;
+                    width:100;
+                    background-color: white;
+                    &:hover{
+                        cursor: pointer;
+                        color:$lightRed;
+                        border-color: $lightRed;
+                    }
+                    
+        
                 }
-            } 
-        }
-        .multiple-values-option{
-            display: flex;
-            flex-wrap:wrap;
-            margin:10px;
-            .option-value{
-                border:1px solid black;
-                border-radius: 5px;
-                padding:5px;
-                margin-left:1px;
-                margin-right:8px;
-                line-height:40px;
-                width:100;
+            }
+            .add-button{
+                position: relative;
+                color:rgb(59, 59, 59);
                 background-color: white;
+                border-radius: 50%;
+                width:30px;
+                height:30px;
                 &:hover{
                     cursor: pointer;
-                    color:$lightRed;
-                    border-color: $lightRed;
+                    color:$inputHover;
+                    border-color:$inputHover;
                 }
-                
+               
+            }
     
-            }
-        }
-
-        .add-button{
-            position: relative;
-            color:rgb(59, 59, 59);
-            background-color: white;
-            border-radius: 50%;
-            width:30px;
-            height:30px;
-            &:hover{
-                cursor: pointer;
-                color:$inputHover;
-                border-color:$inputHover;
-            }
-           
-        }
-
-        .main-message-container{
-            .message-text{
-                padding:20px;
-                font-size: 1.5em;
-            }
-
-            .color-green{
-                background-color: $lightGreen;
+            .main-message-container{
+                .message-text{
+                    padding:20px;
+                    font-size: 1.5em;
+                }
+    
+                .color-green{
+                    background-color: $lightGreen;
+                }
             }
         }
     }
-
 }
 

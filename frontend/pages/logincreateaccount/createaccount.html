@@ -16,49 +16,55 @@
             <div class="error-container hide-visible">
                 <p id="error-message" class="error-box"></p>
             </div>
-            <form class="login-form">
+            <form class="form-style">
                 <ul>
                     <li>
-                        <div class="form-input-field-grp">
+                        <div class="label-input-column">
                             <label for="username-input-field">Username</label>
                             <input 
                                 type="text" 
                                 name="username-input-field" 
                                 id="username-input-field"
+                                required
                             >
                         </div>
                     </li>
                     <li>
-                        <div class="form-input-field-grp">
+                        <div class="label-input-column">
                             <label for="email-input-field">Email</label>
                             <input 
                                 type="email" 
                                 name="email-input-field" 
                                 id="email-input-field"
+                                required
                             >
                         </div>
                     </li>
                     <li>
-                        <div class="form-input-field-grp">
+                        <div class="label-input-column">
                             <label for="password-input-field">Password</label>
                             <input 
                                 type="password" 
                                 name="password-input-field" 
                                 id="password-input-field"
+                                required
                             >
                         </div>
                     </li>
                     <li>
-                        <input type="checkbox" name="terms-checkbox" id="terms-checkbox">
-                        <label for="terms-checkbox">Accept terms</label>
+                        <div class="input-row">
+                            <input type="checkbox" name="terms-checkbox" id="terms-checkbox">
+                            <label for="terms-checkbox">Accept terms</label>
+
+                        </div>
                     </li>
                 
                     <li>
-                        <div>
+                        <div class="flex-row flex-center">
                             <input 
                                 type="submit" 
                                 value="Create Account"
-                                id="login-btn"
+                                id="create-account-btn"
                             >
                         </div>
                     </li>
