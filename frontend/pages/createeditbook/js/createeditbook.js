@@ -89,30 +89,14 @@ $('#createbook-form').on('submit', async (e)=>{
 
     console.log(imgData);
 
-    // await axios.post('http://localhost:1337/api/upload', imgData ,{
-    //     headers:{
-    //         Authorization:`Bearer ${userData.jwt}`,
-    //     }
-    // })
-    // .then(response =>{
-    //     bookObject.cover = response.data[0].id
-    //     axios.post(`http://localhost:1337/api/${radioValue}`, {
-    //         data:bookObject
-    //     },
-    //     {
-    //         headers:{
-    //             Authorization:`Bearer ${userData.jwt}`
-    //         }
-    //     })
-    // })
-    // .then(response =>{
-    //     console.log(response)
-    // })
-    // .catch(error =>{
-    //     console.log(error.message)
-    // })
-
-    await axios.post(`http://localhost:1337/api/${radioValue}`, {
+    await axios.post('http://localhost:1337/api/upload', imgData ,{
+        headers:{
+            Authorization:`Bearer ${userData.jwt}`,
+        }
+    })
+    .then(response =>{
+        bookObject.cover = response.data[0].id
+        axios.post(`http://localhost:1337/api/${radioValue}`, {
             data:bookObject
         },
         {
@@ -120,6 +104,13 @@ $('#createbook-form').on('submit', async (e)=>{
                 Authorization:`Bearer ${userData.jwt}`
             }
         })
+    })
+    .then(response =>{
+        console.log(response)
+    })
+    .catch(error =>{
+        console.log(error.message)
+    })
 
 })
 
