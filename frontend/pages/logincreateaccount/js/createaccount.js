@@ -21,17 +21,21 @@ createBtn.on('click', async (e)=>{
         return this.value == "";
     })
 
-
     if(requriedFields.length >= 1){
         console.log('empty fields');
         printErrorMessage('Missing fields')
         return;
     }
+    
+    if(passwordInputfield.val().length < 8){
+        printErrorMessage('Password must be 8 atleast characters long.')
+        return;    
+    }
 
     await axios.post('http://localhost:1337/api/auth/local/register', {
         username:usernameInputfield.val(),
-        password:passwordInputfield.val(),
         email:emailInputfield.val(),
+        password:passwordInputfield.val(),
     })
     .then(response =>{
         console.log(response);
@@ -43,9 +47,9 @@ createBtn.on('click', async (e)=>{
                 <div class="popup-container">
                     <div class="message-box">
                         <h2>Account created succesful!</h2>
-                        <p>Now enjoy plenty of books <br> here at</p>
-                        <p>Book ducks</p>
-                        <a href="../../index.html">Search books<a>
+                        <p>Now enjoy plenty of books here at</p>
+                        <p>Book Ducks</p>
+
                         <button id="close-popup-btn">Close</button>
                     </div>
                 </div>
