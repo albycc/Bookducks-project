@@ -21,6 +21,87 @@
     border-radius: 10px;
     padding: 30px; }
 
+.link-button {
+  display: inline-block;
+  border-radius: 25px;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  color: white;
+  font-size: 1.4em; }
+  .link-button:link {
+    text-decoration: none; }
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  background-color: orange;
+  height: 100%;
+  min-height: 100px;
+  max-height: 200px;
+  align-self: flex-end; }
+  .search-container .component-searchbar {
+    position: relative;
+    height: 40px;
+    width: 300px;
+    border-radius: 25px;
+    border: 2px solid #666666;
+    padding: 0px 15px;
+    font-size: 1em;
+    z-index: 2; }
+    .search-container .component-searchbar + .search-btn {
+      position: relative;
+      padding: 5px 10px;
+      border: 2px solid #666666;
+      border-radius: 25px;
+      background-color: #a1f886;
+      font-size: 1em;
+      z-index: 2; }
+      .search-container .component-searchbar + .search-btn i {
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+        background-image: url("../img/icons/search-icon.svg");
+        background-repeat: no-repeat;
+        background-size: contain; }
+      .search-container .component-searchbar + .search-btn:hover {
+        cursor: pointer;
+        background-color: #7ffd59; }
+      .search-container .component-searchbar + .search-btn:active {
+        background-color: #d0f8c4; }
+
+@media screen and (min-width: 480px) {
+  .component-searchbar {
+    font-size: 1.5em; }
+    .component-searchbar + .search-btn {
+      font-size: 1.5em; }
+
+  .link-button {
+    font-size: 2em; } }
+.header-login-container {
+  display: flex; }
+  .header-login-container .profile-content a {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .header-login-container .profile-content a span {
+      margin: 0px 10px; }
+  .header-login-container .avatar-icon {
+    border-radius: 30px;
+    border: 1px solid #9e9e9e;
+    width: 60px;
+    height: 60px; }
+  .header-login-container a {
+    font-size: 1.4em;
+    color: #1f1f1f; }
+    .header-login-container a:link {
+      text-decoration: none; }
+    .header-login-container a:hover {
+      text-decoration: underline; }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,8 +116,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: lightblue;
-    height: 80px; }
+    align-items: center;
+    background-color: white;
+    height: 80px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2; }
+    .header-footer-layout header .header-icon a img {
+      height: 64px; }
   .header-footer-layout main {
     min-height: 800px;
     flex-grow: 1; }
@@ -57,13 +143,6 @@
     display: flex;
     flex-wrap: nowrap; }
 
-.book-container {
-  margin: 10px 20px; }
-  .book-container img {
-    width: 200px;
-    height: auto;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3); }
-
 .flex-row {
   display: flex;
   flex-direction: row; }
@@ -81,9 +160,8 @@
 .flex-space-between {
   justify-content: space-between; }
 
-.header-icon img {
-  width: 72px;
-  height: 72px; }
+.flex-alignend {
+  justify-content: flex-end; }
 
 .hide-visible {
   visibility: hidden; }
@@ -101,16 +179,16 @@
 .book-collection {
   display: flex;
   flex-flow: row wrap;
-  border: 1px dashed black;
   width: 100%;
-  min-height: 500px;
-  padding: 50px; }
+  min-height: 500px; }
   .book-collection .book {
-    margin: 50px 50px; }
+    margin: 10px 10px; }
     .book-collection .book img {
-      width: 180px;
+      width: 220px;
       height: auto;
       box-shadow: 5px 5px 10px lightgrey; }
+  .book-collection .toggle-border {
+    border: 1px dashed black; }
 
 .mainpage-container {
   display: flex;
@@ -235,5 +313,23 @@
     font-size: 1.5em; }
   .form-style ul li .main-message-container .color-green {
     background-color: #a1f886; }
+
+.background-pink {
+  background-color: #f7436a; }
+  .background-pink:hover {
+    cursor: pointer;
+    background-color: #f82351; }
+  .background-pink:active {
+    background-color: #f19cae; }
+
+span.red-text {
+  font-weight: bold;
+  color: #f14a2d; }
+
+@media screen and (min-width: 480px) {
+  .book-collection {
+    padding: 50px; }
+    .book-collection .book {
+      margin: 30px 30px; } }
 
 /*# sourceMappingURL=style.css.map */
