@@ -1,0 +1,68 @@
+@import './_partials/variables.scss';
+
+$search-height:40px;
+
+.link-button{
+    display: inline-block;
+    border-radius:25px;
+    border:none;
+    padding:10px 20px;
+    margin: 10px 0px;
+    color:white;
+    font-size: 1.4em;
+    &:link{
+        text-decoration: none;
+    }
+}
+
+.search-container{
+    // background-image: url('../img/searchbar_background.svg');
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:20px;
+    background-color: orange;
+    height:100%;
+    min-height:100px;
+    max-height:200px;
+    
+
+    .component-searchbar{
+        position: relative;
+        height:$search-height;
+        width:300px;
+        border-radius: 25px;
+        border:2px solid $inputBorderColour;
+        padding:0px 15px;
+        font-size: 1em;
+        z-index:2;
+        & + .search-btn{
+            position: relative;
+            height:$search-height;
+            padding:5px 10px;
+            border:2px solid $inputBorderColour;
+            border-radius: 25px;
+            background-color: $lightGreen;
+            font-size: 1em;
+            z-index: 2;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width:$mobile-screen){
+    .component-searchbar{
+        font-size: 1.5em;
+        & + .search-btn{
+            font-size: 1.5em;
+        }
+    }
+
+    .link-button{
+        font-size: 2em;
+    }
+}

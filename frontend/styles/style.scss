@@ -1,5 +1,6 @@
 @import './_partials/variables.scss';
 @import './popupwindow.scss';
+@import './components.scss';
 
 $header-height:80px;
 
@@ -50,15 +51,15 @@ $header-height:80px;
     }
 }
 
-.book-container{
-    margin:10px 20px;
+// .book-container{
+//     margin:10px 20px;
     
-    img{
-        width:200px;
-        height:auto;
-        box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
-    }
-}
+//     img{
+//         width:200px;
+//         height:auto;
+//         box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
+//     }
+// }
 
 .flex-row{
     display: flex;
@@ -108,19 +109,21 @@ $header-height:80px;
 .book-collection{
     display: flex;
     flex-flow:row wrap;
-    border:1px dashed black;
     width:100%;
     min-height:500px;
-    padding:50px;
-
+    
     .book{
-        margin:50px 50px;
+        margin:10px 10px;
         img{
-            width:180px;
+            width:220px;
             height:auto;
             box-shadow: 5px 5px 10px lightgrey;
-
+            
         }
+    }
+    
+    .toggle-border{
+        border:1px dashed black;
     }
 }
 
@@ -298,3 +301,23 @@ $inputHeight:35px;
     }
 }
 
+
+.background-pink{
+    background-color:rgb(247, 67, 106);
+}
+
+span.red-text{
+    font-weight: bold;
+    color:rgb(241, 74, 45);
+}
+
+
+@media screen and (min-width:$mobile-screen){
+    .book-collection{
+        padding:50px;
+       
+        .book{
+            margin:30px 30px;
+        }
+    }
+}

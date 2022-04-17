@@ -64,7 +64,7 @@ const bookRowItemContainer = (bookItem) => {
      "../../../img/missingCover.svg";
     
     return $(`
-        <div class="book-container">
+        <div class="book">
             <a href="../../pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
                 <img src="${url}">
             </a>

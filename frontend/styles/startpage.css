@@ -1,0 +1,36 @@
+.start-page-intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-image: url("../img/startpage_intro_background.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment: scroll;
+  min-height: 800px; }
+  .start-page-intro-container .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 40px; }
+    .start-page-intro-container .column p {
+      font-size: 1em;
+      max-width: 500px;
+      width: 100%; }
+    .start-page-intro-container .column h1 {
+      font-size: 2em; }
+    .start-page-intro-container .column .column-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 35px 0; }
+
+@media screen and (min-width: 480px) {
+  .start-page-intro-container .column p {
+    font-size: 1.3em; }
+  .start-page-intro-container .column h1 {
+    font-size: 3em; } }
+
+/*# sourceMappingURL=startpage.css.map */

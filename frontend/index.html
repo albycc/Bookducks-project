@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/startpage.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
@@ -17,9 +18,9 @@
                 </a>
             </span>
 
-            <span id="login-section">
+            <span id="login-div">
                 <a href="./pages/logincreateaccount/login.html" class="hide-visible" id="login-link">Login</a>
-                <span id="profile-link-section" class="hide-visible">
+                <span id="profile-link-div" class="hide-visible">
                     <a href=".//pages/userprofile/userprofile.html" id="profile-link"></a>
                     <a href="./index.html" id="logout-btn">Logout</a>
                 </span>
@@ -27,41 +28,48 @@
 
         </header>
         <main>
-            <div>
-                <h1>Books for hiring</h1>
+            <div class="start-page-intro-container">
+                <!-- <img src="./img/startpage_intro_background.jpg" alt="" class="backdrop"> -->
+                <div class="column">
+                    <div class="column-item">
+                        <h1>Enjoy over 5 million books for reading</h1>
+                        <p>Wether it's love stories, essays, fantasy or cookbooks, Book Ducks has the perfect book for your every need.</p>
+                        <p>Join over <span class="red-text">4 million book lovers</span> that like to share and loan books with each over.</p>
+                    </div>
+                    <div class="column-item">
+                        <div class="search-container">
+                            <input type="text" name="search-field" id="search-field" class="component-searchbar">
+                            <input type="button" id="search-btn" value="SEARCH" class="search-btn">
+                        </div>
+                    </div>
+                    <div class="column-item">
+                        <p>Or check to see</p>
+                        <span>
+                            <a href="./pages/search/search.html?query=*" class="link-button background-pink">Available books</a>
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
-            <section class="start-page-intro-container">
-                <div class="flex-row">
-                    <div>
-                        <p>Check to see</p>
-                        <a href="./pages/search/search.html?query=*">Available books</a>
-                    </div>
-                    <div class="search-container">
-                        <input type="text" name="search-field" id="search-field">
-                        <input type="button" id="search-btn" value="search">
-                    </div>
-
-                </div>
-
-            </section>
-            <section class="book-section">
+            <div class="book-div">
                 <h2>Most popular</h2>
-                <div class="book-row" id="popular-books-row">
+                <div class="book-collection" id="popular-books-row">
 
                 </div>
-            </section>
-            <section class="book-section">
+            </div>
+            <div class="book-div">
                 <h2>Fantasy</h2>
-                <div class="book-row" id="fantasy-books-row">
+                <div class="book-collection" id="fantasy-books-row">
 
                 </div>
-            </section>
-            <section class="book-section">
+            </div>
+            <div class="book-div">
                 <h2>Sci-fi</h2>
-                <div class="book-row" id="scifi-books-row">
+                <div class="book-collection" id="scifi-books-row">
                     
                 </div>
-            </section>
+            </div>
         </main>
         <footer>
 
