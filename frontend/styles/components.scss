@@ -13,6 +13,7 @@ $search-height:40px;
     &:link{
         text-decoration: none;
     }
+    
 }
 
 .search-container{
@@ -26,8 +27,8 @@ $search-height:40px;
     height:100%;
     min-height:100px;
     max-height:200px;
+    align-self: flex-end;
     
-
     .component-searchbar{
         position: relative;
         height:$search-height;
@@ -39,15 +40,27 @@ $search-height:40px;
         z-index:2;
         & + .search-btn{
             position: relative;
-            height:$search-height;
             padding:5px 10px;
             border:2px solid $inputBorderColour;
             border-radius: 25px;
             background-color: $lightGreen;
             font-size: 1em;
             z-index: 2;
+            i{
+                display: inline-block;
+                height:25px;
+                width:25px;
+                background-image: url('../img/icons/search-icon.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+
+            }
             &:hover{
                 cursor: pointer;
+                background-color: rgb(127, 253, 89);
+            }
+            &:active{
+                background-color: rgb(208, 248, 196);
             }
         }
     }
@@ -64,5 +77,37 @@ $search-height:40px;
 
     .link-button{
         font-size: 2em;
+    }
+}
+
+.header-login-container{
+    display: flex;
+    .profile-content{
+        a{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            span{
+                margin:0px 10px;
+            }
+        }
+
+    }
+    .avatar-icon{
+        border-radius: 30px;
+        border: 1px solid rgb(158, 158, 158);
+        width:60px;
+        height:60px;
+
+    }
+    a{
+        font-size: 1.4em;
+        color:rgb(31, 31, 31);
+        &:link{
+            text-decoration: none;
+        }
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }

@@ -14,15 +14,17 @@
         <header>
             <span class="header-icon">
                 <a href="./index.html">
-                    <img src="./img/icons/dukk.svg" alt="" class="header-icon">
+                    <img src="./img/icons/header_icon.svg" alt="">
                 </a>
             </span>
 
-            <span id="login-div">
+            <span id="login-container" class="header-login-container">
                 <a href="./pages/logincreateaccount/login.html" class="hide-visible" id="login-link">Login</a>
-                <span id="profile-link-div" class="hide-visible">
-                    <a href=".//pages/userprofile/userprofile.html" id="profile-link"></a>
-                    <a href="./index.html" id="logout-btn">Logout</a>
+                <span id="profile-link-content" class="profile-content hide-visible">
+                    <a href=".//pages/userprofile/userprofile.html" id="profile-link">
+                        <img src="./img/avatar.jpg" alt="user's avatar image" class="avatar-icon">
+                        <span></span>
+                    </a>
                 </span>
             </span>
 
@@ -32,14 +34,14 @@
                 <!-- <img src="./img/startpage_intro_background.jpg" alt="" class="backdrop"> -->
                 <div class="column">
                     <div class="column-item">
-                        <h1>Enjoy over 5 million books for reading</h1>
-                        <p>Wether it's love stories, essays, fantasy or cookbooks, Book Ducks has the perfect book for your every need.</p>
+                        <h1>Enjoy over 5 million books</h1>
+                        <p>Whether it's love stories, essays, fantasy or cookbooks, Book Ducks has the perfect book for your every need.</p>
                         <p>Join over <span class="red-text">4 million book lovers</span> that like to share and loan books with each over.</p>
                     </div>
                     <div class="column-item">
                         <div class="search-container">
                             <input type="text" name="search-field" id="search-field" class="component-searchbar">
-                            <input type="button" id="search-btn" value="SEARCH" class="search-btn">
+                            <button type="button" id="search-btn" class="search-btn"><i></i></button>
                         </div>
                     </div>
                     <div class="column-item">
@@ -78,6 +80,7 @@
     </div>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="./js/header.js"></script>
     <script type="module" src="./js/startpage.js"></script>
     
 </body>

@@ -27,8 +27,6 @@ async function searchQuery(){
 
     let bookList = [...bookCol.books.data, ...bookCol.audiobooks.data]
 
-    console.log(bookList)
-
     searchField.val(query)
 
     if(query == '*'){
@@ -57,8 +55,6 @@ const bookRowItemContainer = (bookItem) => {
         id:arr[2]
     }
 
-    console.log(bookItem)
-
     const url = bookItem.attributes.cover.data !== null ?
     `http://localhost:1337${bookItem.attributes.cover.data.attributes.url}` :
      "../../../img/missingCover.svg";
@@ -73,7 +69,13 @@ const bookRowItemContainer = (bookItem) => {
 }
 
 $('#search-btn').on('click', searchListener);
-$('#search-form').on('submit', searchListener);
+$('#search-field').on('keydown', (e)=>{
+    // console.log(e.key)
+    if(e.code == 'Enter' || e.key == 'Enter'){
+        searchListener();
+    }
+})
+// $('#search-form').on('submit', searchListener);
 
 function searchListener(){
     

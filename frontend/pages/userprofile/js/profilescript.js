@@ -76,3 +76,9 @@ const bookContainer = (book)=>{
 }
 
 fetchUserInfo();
+
+$('#logout-btn').on('click', ()=>{
+    sessionStorage.removeItem('userData');
+    location.href = '../../../index.html'
+    
+})

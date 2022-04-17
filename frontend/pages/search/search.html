@@ -13,15 +13,17 @@
         <header>
             <span class="header-icon">
                 <a href="../../index.html">
-                    <img src="../../img/icons/dukk.svg" alt="" class="header-icon">
+                    <img src="../../img/icons/header_icon.svg" alt="">
                 </a>
             </span>
 
-            <span id="login-section">
-                <a href="../logincreateaccount/login.html" class="hide-visible" id="login-link">Login</a>
-                <span id="profile-link-section" class="hide-visible">
-                    <a href="../userprofile/userprofile.html" id="profile-link"></a>
-                    <a href="../../index.html" id="logout-btn">Logout</a>
+            <span id="login-container" class="header-login-container">
+                <a href="../../pages/logincreateaccount/login.html" class="hide-visible" id="login-link">Login</a>
+                <span id="profile-link-content" class="profile-content hide-visible">
+                    <a href="../../pages/userprofile/userprofile.html" id="profile-link">
+                        <img src="../../img/avatar.jpg" alt="user's avatar image" class="avatar-icon">
+                        <span></span>
+                    </a>
                 </span>
             </span>
 
@@ -29,11 +31,14 @@
 
         <main>
 
-            <div class="search-container">
-                <form id="search-form">
-                    <input type="text" name="query" id="search-field">
-                    <input type="submit" id="search-btn" value="search">
-                </form>
+            <div class="flex-row flex-alignend">
+                <div class="search-container">
+                    <div class="search-container">
+                        <input type="text" name="search-field" id="search-field" class="component-searchbar">
+                        <button type="button" id="search-btn" class="search-btn"><i></i></button>
+                    </div>
+                </div>
+
             </div>
             <div class="result-container">
                 <div class="book-collection" id="search-result-container">
@@ -49,6 +54,7 @@
     </div>
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="../../js/header.js"></script>
     <script type="module" src="./js/search.js"></script>
     
 </body>
