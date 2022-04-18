@@ -25,6 +25,7 @@ function toggleRadioButtons(){
 
 $('#submit-btn').on('click', async (e)=>{
     e.preventDefault();
+
     console.log('create book function');
     $('.input-field-errormessage').remove();
 
@@ -87,34 +88,38 @@ $('#submit-btn').on('click', async (e)=>{
 
     console.log(imgData);
 
+    //send image
     // await axios.post('http://localhost:1337/api/upload', imgData ,{
     //     headers:{
     //         Authorization:`Bearer ${userData.jwt}`,
     //     }
     // })
     // .then(response =>{
-    //     bookObject.cover = response.data[0].id
-    //     axios.post(`http://localhost:1337/api/${radioValue}`, {
-    //         data:bookObject
-    //     },
-    //     {
-    //         headers:{
-    //             Authorization:`Bearer ${userData.jwt}`
-    //         }
-    //     })
-    // })
-    // .then(response =>{
-    //     console.log(response)
-    // })
+    //         bookObject.cover = response.data[0].id
+    //         axios.post(`http://localhost:1337/api/${radioValue}`, {
+    //             data:bookObject
+    //         },
+    //         {
+    //             headers:{
+    //                 Authorization:`Bearer ${userData.jwt}`
+    //             }
+    //         })
+    //     }
+    // )
     // .catch(error =>{
-    //     console.log(error.message)
+    //         console.log(error.message)
     // })
 
-    // const {data:img} = await axios.post('http://localhost:1337/api/upload', imgData ,{
-    //     headers:{
-    //         Authorization:`Bearer ${userData.jwt}`,
-    //     }
-    // })
+    axios.post(`http://localhost:1337/api/${radioValue}`, {
+                data:bookObject
+            },
+            {
+                headers:{
+                    Authorization:`Bearer ${userData.jwt}`
+                }
+            }
+    )
+
 
 
     const {data:{data:book}} = await axios.post(`http://localhost:1337/api/${radioValue}`, {
@@ -127,6 +132,7 @@ $('#submit-btn').on('click', async (e)=>{
         }
     )
 
+    //generate book itemID
     const {data:{data:bookWithId}} = await axios.put(`http://localhost:1337/api/${radioValue}/${book.id}`, {
             data:{
                 itemID:generateItemId(book, radioValue),
@@ -154,6 +160,12 @@ $('#submit-btn').on('click', async (e)=>{
             }
         }
     )
+    .then(response =>{
+        if(response.status == 200){
+            createPopup();
+        }
+    })
+
 })
 
 async function initFormula(){
@@ -242,3 +254,47 @@ function generateItemId(bookItem, collection){
     let id = `b_${collection}_${bookItem.id}`
     return id;
 }
+
+function createPopup(){
+    const popupContainer = $(`<div class="popup-container"></div>`);
+    const popupMessage = $('<div class="message-box"></div>');
+
+
+    popupMessage.append(`
+        <div class="content">
+            <h2>Book sent!</h2>
+        </div>
+        <div class="content links">
+            <button id="close-popup-btn" class="close">Close</button>
+        </div>
+    `);
+
+    popupContainer.append(popupMessage);
+
+    $('#bookpage-container').prepend(popupContainer);
+
+    $('#close-popup-btn').on('click', ()=>{
+        location.reload();
+    })
+
+    $(document).on('scroll', ()=>{
+        popupContainer.css('top', window.scrollY)
+    })
+}
+
+function initPage(){
+    if(userData == null){
+        const pageContainer = $('.pageinfo-container')
+        pageContainer.empty()
+
+        const pageError = $(`<div>
+            <h1>Unauthorized access</h2>
+        </div>`);
+
+        console.log(pageContainer)
+
+        pageContainer.append(pageError)
+    }
+}
+
+initPage();

@@ -60,7 +60,6 @@ async function fetchUserInfo(){
 
 }
 
-fetchUserInfo();
 
 $('#logout-btn').on('click', ()=>{
     sessionStorage.removeItem('userData');
@@ -68,4 +67,22 @@ $('#logout-btn').on('click', ()=>{
     
 })
 
-setBookCollection("../../../", "../")
+function initPage(){
+    if(userData == null){
+        const pageContainer = $('main')
+        pageContainer.empty()
+
+        const pageError = $(`<div>
+            <h1>Unauthorized access</h2>
+        </div>`);
+
+        console.log(pageContainer)
+
+        pageContainer.append(pageError)
+        return;
+    }
+    fetchUserInfo();
+    setBookCollection("../../../", "../")
+}
+
+initPage();
