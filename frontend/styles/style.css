@@ -9,7 +9,7 @@
   .popup-container div.message-box {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     top: 250px;
@@ -20,6 +20,18 @@
     box-shadow: 5px 5px 10px grey;
     border-radius: 10px;
     padding: 30px; }
+    .popup-container div.message-box .content {
+      display: flex;
+      flex-direction: column; }
+    .popup-container div.message-box .links .close {
+      background-color: white;
+      border: none;
+      border-radius: none;
+      text-decoration: none;
+      color: #f82351;
+      cursor: pointer; }
+      .popup-container div.message-box .links .close:hover {
+        text-decoration: underline; }
 
 .link-button {
   display: inline-block;
@@ -101,6 +113,44 @@
       text-decoration: none; }
     .header-login-container a:hover {
       text-decoration: underline; }
+
+.component-button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.3em; }
+
+.link-button {
+  border: none;
+  margin: 10px 0px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  text-decoration: none; }
+
+.score-bar {
+  position: relative;
+  height: 40px;
+  width: 200px; }
+  .score-bar .score {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background-size: 200px 40px; }
+    .score-bar .score.empty {
+      background-image: url("../img/icons/star-empty.svg"); }
+    .score-bar .score.full {
+      background-image: url("../img/icons/star-full.svg"); }
+
+.background-pink {
+  background-color: #f82351;
+  color: white; }
+  .background-pink:hover {
+    cursor: pointer;
+    background-color: #eb0839; }
+  .background-pink:active {
+    background-color: #fa5e80; }
+  .background-pink:disabled {
+    background-color: #bdbdbd; }
 
 * {
   box-sizing: border-box;
@@ -314,22 +364,13 @@
   .form-style ul li .main-message-container .color-green {
     background-color: #a1f886; }
 
-.background-pink {
-  background-color: #f7436a; }
-  .background-pink:hover {
-    cursor: pointer;
-    background-color: #f82351; }
-  .background-pink:active {
-    background-color: #f19cae; }
-
-span.red-text {
-  font-weight: bold;
-  color: #f14a2d; }
-
 @media screen and (min-width: 480px) {
   .book-collection {
     padding: 50px; }
     .book-collection .book {
       margin: 30px 30px; } }
+span.red-text {
+  font-weight: bold;
+  color: #f14a2d; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,41 +1,90 @@
+@import '../../../styles/_partials/variables.scss';
 
 main.bookpage-main{
-    background-color: #D0EDED;
+    background-color: $lightHavenBlue;
 }
+
+$max-width:1000px;
 
 .book-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin: 30px 0px;
 
-    .bookinfo-flexcolumn{
+
+    //row for book cover and container for title, rating, etc
+    .bookinfo-header-container{
         display: flex;
         flex-direction: column;
         margin:0px 10px;
-        $column-width:200px;
+        max-width:$max-width;
+        width:100%;
 
         .book-cover{
-            background-color: red;
         
             img{
                 height:auto;
-                width:$column-width;
+                width:250px;
             }
         }
 
-        .book-info-panel{
+        //container for title, authors etc.
+        .book-info-heading{
             display: flex;
             flex-direction: column;
-            border: 1px solid black;
-            width:$column-width;
-            height:300px;
+            align-self: flex-start;
+            width:100%;
+            min-height:350px;
+            padding: 10px 30px;
+            margin: 10px 0px 15px 0px;
+            background-color: white;
+            border: 1px solid rgb(192, 192, 192); 
+            article{
+                h1{
+                    font-size: 2em;
+                }
+
+                section{
+                    margin:15px 0px;
+
+                    .star-row{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        span{
+                            margin-left:220px;
+                        }
+                    }
+                  
+                }
+
+                .components-row{
+                    margin:50px 0px;
+                }
+            }
         }
+
     }
 
     div.main-book-container{
 
-        width:700px;
-        border: 1px solid black;
+        padding:20px 45px;
+        padding-bottom: 40px;
+        max-width:$max-width;
+        width:100%;
+        background-color: white;
+        border: 1px solid rgb(192, 192, 192);
+
+        article{
+           
+            section{
+                margin:15px 5px;
+                & p:first-of-type{
+                    font-weight: bold;
+                }
+            }
+        }
     }
     
 }
@@ -69,6 +118,23 @@ main.bookpage-main{
 
 .user-loaned-box{
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 15px 10px;
     background-color: rgb(255, 127, 127);
+}
+
+@media screen and(min-width:$mobile-screen){
+    .book-container{
+        .bookinfo-header-container{
+            display: flex;
+            flex-direction: row;
+            .book-info-heading{
+                margin: 0px 0px 15px 15px;
+            }
+
+        }
+
+        div.main-book-container{
+            margin-top:15px;
+        }
+    }
 }

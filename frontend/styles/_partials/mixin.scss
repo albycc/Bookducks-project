@@ -1,0 +1,15 @@
+@mixin inputColour($h, $s, $l, $foreColor:black){
+    background-color: hsl($h, $s, $l);
+    color:$foreColor;
+
+    &:hover{
+        cursor: pointer;
+        background-color: hsl($h, $s, $l - 8%);
+    }
+    &:active{
+        background-color: hsl($h, $s, $l + 12%);
+    }
+    &:disabled{
+        background-color: rgb(189, 189, 189);
+    }
+}
