@@ -309,24 +309,6 @@ $inputHeight:35px;
     }
 }
 
-
-.background-pink{
-    background-color:rgb(247, 67, 106);
-    &:hover{
-        cursor: pointer;
-        background-color: rgb(248, 35, 81);
-    }
-    &:active{
-        background-color: rgb(241, 156, 174);
-    }
-}
-
-span.red-text{
-    font-weight: bold;
-    color:rgb(241, 74, 45);
-}
-
-
 @media screen and (min-width:$mobile-screen){
     .book-collection{
         padding:50px;
@@ -335,4 +317,9 @@ span.red-text{
             margin:30px 30px;
         }
     }
+}
+
+span.red-text{
+    font-weight: bold;
+    color:rgb(241, 74, 45);
 }
