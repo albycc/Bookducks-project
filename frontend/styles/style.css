@@ -163,34 +163,52 @@
     height: 320px;
     margin: 10px 10px;
     border: 1px solid black; }
-    .book-collection .book a img {
+    .book-collection .book a {
       position: absolute;
+      display: inline-block;
       width: 220px;
-      height: auto;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
       transform-origin: center;
-      z-index: 2;
-      transition-property: width transform z-index box-shadows;
-      transition-duration: 0.5s;
-      transition-delay: 0.2s; }
-      .book-collection .book a img:hover {
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      transition-property: width transform z-index box-shadow; }
+      .book-collection .book a img {
+        position: absolute;
+        width: 220px;
+        height: auto;
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        z-index: 2; }
+      .book-collection .book a:hover > img {
         width: 350px;
         transform: rotate(-5deg);
-        z-index: 3;
+        z-index: 5;
         box-shadow: -15px 55px 10px rgba(0, 0, 0, 0.3); }
-    .book-collection .book a .book-info-page {
-      background-color: pink;
-      height: 200px;
-      width: 450px;
-      z-index: 1;
-      transition-property: width z-index;
-      transition-duration: 0.5s; }
-      .book-collection .book a .book-info-page:hover {
-        width: 600px;
-        z-index: 2; }
-  .book-collection .toggle-border {
+      .book-collection .book a:hover > .book-available {
+        display: block;
+        z-index: 3;
+        animation-name: bookinfo-animate;
+        animation-delay: 0.6s;
+        animation-fill-mode: forwards; }
+      .book-collection .book a .book-available {
+        visibility: hidden;
+        position: absolute;
+        background-color: pink;
+        height: 200px;
+        width: 250px;
+        border: 1px solid black; }
+@keyframes bookinfo-animate {
+  0% {
+    visibility: hidden; }
+  100% {
+    z-index: 6;
+    visibility: visible; } }
+  .book-collection.toggle-border {
     border: 1px dashed black; }
 
+@media screen and (min-width: 480px) {
+  .book-collection {
+    padding: 50px; }
+    .book-collection .book {
+      margin: 30px 30px; } }
 * {
   box-sizing: border-box;
   margin: 0;
@@ -389,11 +407,6 @@
   .form-style ul li .main-message-container .color-green {
     background-color: #a1f886; }
 
-@media screen and (min-width: 480px) {
-  .book-collection {
-    padding: 50px; }
-    .book-collection .book {
-      margin: 30px 30px; } }
 span.red-text {
   font-weight: bold;
   color: #f14a2d; }

@@ -53,10 +53,10 @@ const bookRowItemContainer = (bookItem) => {
     return $(`
     <div class="book">
         <a href="./pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
-            <img src="http://localhost:1337${bookItem.attributes.cover.data.attributes.url}">
-            <div class="book-info-page">
-        
+            <div class="book-available">
+            
             </div>
+            <img src="http://localhost:1337${bookItem.attributes.cover.data.attributes.url}">
             
         </a>
         

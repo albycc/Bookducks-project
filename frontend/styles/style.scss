@@ -15,6 +15,7 @@ $header-height:80px;
     flex-direction: column;
     justify-content: space-between;
     height:auto;
+
     header{
         display: flex;
         flex-direction: row;
@@ -284,16 +285,6 @@ $inputHeight:35px;
                     background-color: $lightGreen;
                 }
             }
-        }
-    }
-}
-
-@media screen and (min-width:$mobile-screen){
-    .book-collection{
-        padding:50px;
-       
-        .book{
-            margin:30px 30px;
         }
     }
 }
