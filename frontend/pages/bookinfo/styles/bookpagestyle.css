@@ -29,6 +29,12 @@ main.bookpage-main {
         font-size: 2em; }
       .book-container .bookinfo-header-container .book-info-heading article section {
         margin: 15px 0px; }
+        .book-container .bookinfo-header-container .book-info-heading article section .star-row {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start; }
+          .book-container .bookinfo-header-container .book-info-heading article section .star-row span {
+            margin-left: 220px; }
       .book-container .bookinfo-header-container .book-info-heading article .components-row {
         margin: 50px 0px; }
   .book-container div.main-book-container {

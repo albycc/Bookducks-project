@@ -47,22 +47,23 @@ async function loadBookData(){
             <div class="book-info-heading">
                 <article>
                     <h1>${bookItem.title}</h1>
-                </section>
-                <section>
-                    <p>${bookItem.authors}</p>
-                    ${collection == "audiobooks" ? "<p>Narrated by: " + bookItem.narratedBy + "</p>": ""}
-                </section>
-                <section>
-                    <span class="flex-row flex-space-between">
-                        <span>${bookItem.avgScore}</span>
-                        ${stars}
-                    </span>
-                </section>
-                <section>
-                    <div class="components-row">
-                        <button id="loan-btn" class="component-button"></button>
-                    </div>
-                </section>
+                    </section>
+                    <section>
+                        <p>${bookItem.authors}</p>
+                        ${collection == "audiobooks" ? "<p>Narrated by: " + bookItem.narratedBy + "</p>": ""}
+                    </section>
+                    <section>
+                        <div class="star-row">
+                            ${stars}
+                            <span>${bookItem.avgScore}</span>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="components-row">
+                            <button id="loan-btn" class="component-button background-pink"></button>
+                        </div>
+                    </section>
+                </article>
             </div>
         </div>
         <div class="main-book-container">
@@ -155,16 +156,24 @@ async function loanBook(){
             Authorization: `Bearer ${userData.jwt}`,
         }
     })
-    const popupContainer = $(`<div class="recipe-popup-container"></div>`);
+    const popupContainer = $(`<div class="popup-container"></div>`);
     const popupMessage = $('<div class="message-box"></div>');
 
     popupMessage.append(`
-        <h2>You have loaned ${book.title}!</h2>
-        <h3>Recipe details</h3>
-        <p>Loaned by: ${userData.user.username}</p>
-        <p>Email: ${userData.user.email}</p>
-        <a href="../../index.html">Search more books<a>
-        <button id="close-popup-btn">Close</button>
+        <div class="content">
+            <h2>You have loaned ${book.title}!</h2>
+        </div>
+        <div class="content">
+            <h3>Recipe details</h3>
+            <p>Loaned by: ${userData.user.username}</p>
+            <p>Email: ${userData.user.email}</p>
+        
+        </div>
+        <div class="content links">
+            <a href="../../index.html" class="link-button background-pink">Search more books</a>
+            <button id="close-popup-btn" class="close">Close</button>
+        
+        </div>
     `);
     popupContainer.append(popupMessage);
 
@@ -189,14 +198,18 @@ async function retrieveBook(){
     .then(response =>{
 
         console.log(response)
-        const popupContainer = $(`<div class="recipe-popup-container"></div>`);
+        const popupContainer = $(`<div class="popup-container"></div>`);
         const popupMessage = $('<div class="message-box"></div>');
 
     
         popupMessage.append(`
-            <h2>Thank you or reading ${response.data.data.attributes.title}!</h2>
-            <a href="../../index.html">Search more books<a>
-            <button id="close-popup-btn">Close</button>
+            <div class="content">
+                <h2>Thank you or reading ${response.data.data.attributes.title}!</h2>
+            </div>
+            <div class="content links">
+                <a href="../../index.html" class="link-button background-pink">Search more books</a>
+                <button id="close-popup-btn" class="close">Close</button>
+            </div>
         `);
     
         popupContainer.append(popupMessage);

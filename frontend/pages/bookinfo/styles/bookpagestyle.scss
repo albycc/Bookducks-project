@@ -47,6 +47,15 @@ $max-width:1000px;
 
                 section{
                     margin:15px 0px;
+
+                    .star-row{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        span{
+                            margin-left:220px;
+                        }
+                    }
                   
                 }
 
@@ -55,6 +64,7 @@ $max-width:1000px;
                 }
             }
         }
+
     }
 
     div.main-book-container{
