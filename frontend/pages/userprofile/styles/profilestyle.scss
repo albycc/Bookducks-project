@@ -18,10 +18,11 @@
 }
 
 .user-icon{
-    width:250px;
-    height:250px;
-    border-radius: 50%;
-    background-color: rgb(206, 206, 206);
+    margin-top:30px;
+    img{
+        width:250px;
+        border-radius: 50%;
+    }
 }
 
 .user-avatar-container{
@@ -40,8 +41,9 @@
     justify-content: center;
     position: relative;
     top:-30px;
-    width:800px;
-    height:400px;
+    width:100%;
+    max-width:800px;
+    min-height:400px;
     background-color: white;
     border-radius: 5px;
     padding:40px 30px;

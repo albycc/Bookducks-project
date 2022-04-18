@@ -1,4 +1,5 @@
 import {userData} from './main.js';
+import { bookRowItemContainer, setBookCollection} from './bookcollection.js';
 
 const bookRowPopular = $('#popular-books-row');
 const bookRowFantasy = $('#fantasy-books-row')
@@ -37,29 +38,10 @@ function populateRow(list, rowElement){
 
 }
 
-const bookRowItemContainer = (bookItem) => {
-
-    //what type of book?
-
-    let arr = bookItem.attributes.itemID.split('_');
-
-    const itemIDobject = {
-        item:arr[0],
-        type:arr[1],
-        id:arr[2]
-    }
-    
-
-    return $(`
-    <div class="book">
-        <a href="./pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
-            <img src="http://localhost:1337${bookItem.attributes.cover.data.attributes.url}">
-        </a>
-    </div>`)
-}
-
 $('#search-btn').on('click', ()=>{
     location.href = `./pages/search/search.html?query=${searchField.val().toLowerCase()}`
 })
 
 populateBookrows();
+
+setBookCollection("./", "./")

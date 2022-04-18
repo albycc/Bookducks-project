@@ -1,5 +1,6 @@
 import {userData} from '../../../js/main.js'
 import { convertId } from '../../../js/bookid.js';
+import { bookRowItemContainer, setBookCollection } from '../../../js/bookcollection.js';
 
 const booksLoanedContent = $('#book-collection-books-loaned');
 const booksRegisteredContent = $('#book-collection-books-registered')
@@ -47,32 +48,16 @@ async function fetchUserInfo(){
         console.log(book)
 
         if(book.attributes.loanedBy.data !== null){
-            booksLoanedContent.append(bookContainer(book))
+            booksLoanedContent.append(bookRowItemContainer(book))
             loanedCountElement.text((+loanedCountElement.text()) + 1)
             
         }
         if(book.attributes.creator.data !== null){
-            booksRegisteredContent.append(bookContainer(book))
+            booksRegisteredContent.append(bookRowItemContainer(book))
             createdCountElement.text((+ createdCountElement.text()) + 1)
         }
     })
 
-}
-
-const bookContainer = (book)=>{
-    const itemIDobject = convertId(book);
-
-    const url = book.attributes.cover.data !== null ?
-        `http://localhost:1337${book.attributes.cover.data.attributes.url}` :
-         "../../../img/missingCover.svg";
-
-    return `
-        <div class="book">
-            <a href="../bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
-                <img src="${url}"></img>
-            </a>
-        </div>
-    `
 }
 
 fetchUserInfo();
@@ -82,3 +67,5 @@ $('#logout-btn').on('click', ()=>{
     location.href = '../../../index.html'
     
 })
+
+setBookCollection("../../../", "../")

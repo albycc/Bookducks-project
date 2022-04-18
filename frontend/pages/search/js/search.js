@@ -11,6 +11,8 @@ querystring - retrieve books with title or author containing search text
 
 */
 
+import { bookRowItemContainer, setBookCollection} from "../../../js/bookcollection.js";
+
 const searchResultContainer = $('#search-result-container');
 
 const searchField = $('#search-field')
@@ -43,30 +45,37 @@ async function searchQuery(){
     })
 }
 
-const bookRowItemContainer = (bookItem) => {
+// const bookRowItemContainer = (bookItem) => {
 
-    //what type of book?
+//     //what type of book?
 
-    let arr = bookItem.attributes.itemID.split('_');
+//     let arr = bookItem.attributes.itemID.split('_');
 
-    const itemIDobject = {
-        item:arr[0],
-        type:arr[1],
-        id:arr[2]
-    }
+//     const itemIDobject = {
+//         item:arr[0],
+//         type:arr[1],
+//         id:arr[2]
+//     }
 
-    const url = bookItem.attributes.cover.data !== null ?
-    `http://localhost:1337${bookItem.attributes.cover.data.attributes.url}` :
-     "../../../img/missingCover.svg";
+//     const availableFlag = bookItem.attributes.loanedBy.data == null;
+
+//     const url = bookItem.attributes.cover.data !== null ?
+//     `http://localhost:1337${bookItem.attributes.cover.data.attributes.url}` :
+//      "../../img/missingCover.svg";
     
-    return $(`
-        <div class="book">
-            <a href="../../pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
-                <img src="${url}">
-            </a>
-        </div>`
-    )
-}
+//     return $(`
+//         <div class="book">
+//             <a href="../../pages/bookinfo/bookinfo.html?id=${itemIDobject.id}&collection=${itemIDobject.type}">
+//                 <img src="${url}">
+//                 <div class="book-message ${availableFlag ? "yellow-color" : "red-color"}">
+//                     <span>${availableFlag ? "Available" : "Unavailable"}</span>
+//                 </div>
+//             </a>
+//             <p class="title">${bookItem.attributes.title}</p>
+//             <p>${bookItem.attributes.authors}</p>
+//         </div>`
+//     )
+// }
 
 $('#search-btn').on('click', searchListener);
 $('#search-field').on('keydown', (e)=>{
@@ -83,4 +92,6 @@ function searchListener(){
 }
 
 searchQuery();
+
+setBookCollection("../../", "../../")
 
