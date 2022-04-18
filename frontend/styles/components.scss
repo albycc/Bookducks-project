@@ -3,19 +3,6 @@
 
 $search-height:40px;
 
-.link-button{
-    display: inline-block;
-    border-radius:25px;
-    border:none;
-    padding:10px 20px;
-    margin: 10px 0px;
-    color:white;
-    font-size: 1.4em;
-    &:link{
-        text-decoration: none;
-    }
-    
-}
 
 .search-container{
     // background-image: url('../img/searchbar_background.svg');
@@ -126,6 +113,7 @@ $search-height:40px;
     font-size: 1.2em;
     border-radius: 10px;
     text-decoration: none;
+    padding:10px 15px;
 }
 
 .score-bar{
@@ -155,61 +143,83 @@ $search-height:40px;
     display: flex;
     flex-flow:row wrap;
     width:100%;
-    min-height:500px;
+    min-height:550px;
     
     .book{
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
         width:220px;
-        height:320px;
+        min-height:420px;
         margin:10px 10px;
-        border: 1px solid black;
+        padding:0px 10px;
 
         a{
             position: absolute;
             display: inline-block;
-            width:220px;
-            transform-origin: center;
-            box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: 0.3);
-            transition-property: width transform z-index box-shadow;
+            max-width:210px;
+            height:auto;
+            max-height: 340px;
+            transform-origin:center;
+            transition-property: max-width transform z-index top left;
+            transition-duration: 0.3s;
+            transition-delay: 0.2s;
+            color:black;
+            left:0px;
+            top:0px;
+            z-index:4;
 
             img{
-                position: absolute;
-                width:220px;
+                position: relative;
+                width:100%;
                 height:auto;
-                transition-duration: 0.5s;
-                transition-delay: 0.2s;
+                // transform-origin:bottom;
+                box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: 0.3);
                 z-index: 2;
+                transition-duration: 0.3s;
+                transition-delay: 0.2s;
             }
 
             &:hover{
-
+                max-width:350px;
+                transform: rotate(-5deg);
+                z-index: 5;
+                top:-30px;
+                left:-60px;
                 & > img{
-                   width:350px;
-                   transform: rotate(-5deg);
-                   z-index: 5;
-                   box-shadow: -15px 55px 10px rgba($color: #000000, $alpha: 0.3);
-               }
-               & > .book-available{
-                display: block;
-                z-index:3;
-                animation-name:bookinfo-animate;
-                animation-delay: 0.6s;
-                animation-fill-mode: forwards;
-               }
+                    box-shadow: -15px 55px 10px rgba($color: #000000, $alpha: 0.3);
+                }
+                & > .book-message{
+                    display: block;
+                    animation-name:bookinfo-animate;
+                    animation-delay: 0.6s;
+                    animation-fill-mode: forwards;
+                }
             }
 
-            .book-available{
-                visibility: hidden;
+            .book-message{
+                text-align: center;
+                line-height: 2em;
+                visibility:hidden;
                 position: absolute;
-                background-color: pink;
-                height:200px;
-                width:250px;
-                border:1px solid black;
+                background-color: rgb(241, 143, 159);
+                min-height:70px;
+                width:100%;
+                top:200px;
+                font-size: 2em;
+                &.red-color{
+                    background-color: rgb(241, 143, 159);
+                }
+                &.yellow-color{
+                    background-color: rgb(240, 233, 140);
+                }
             }
 
             @keyframes bookinfo-animate{
                 0%{
-                    visibility: hidden;
+                    visibility:hidden;
                 }
                 100%{
                     z-index: 6;
@@ -217,6 +227,21 @@ $search-height:40px;
                 }
                 
             }
+        }
+
+        p.title{
+            font-weight: bold;
+            font-size:1.3em;
+            width:220px;
+            text-align: center;
+        }
+
+        p.authors{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width:220px;
+            text-align: center;
         }
         
     }
@@ -228,7 +253,7 @@ $search-height:40px;
 
 @media screen and (min-width:$mobile-screen){
     .book-collection{
-        padding:50px;
+        padding:60px 100px;
        
         .book{
             margin:30px 30px;
