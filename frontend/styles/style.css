@@ -4,15 +4,16 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  z-index: 2;
-  background-color: rgba(10, 10, 10, 0.3); }
+  z-index: 3;
+  background-color: rgba(10, 10, 10, 0.3);
+  top: 0px; }
   .popup-container div.message-box {
     position: relative;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    top: 250px;
+    top: 150px;
     width: 700px;
     height: 350px;
     background-color: white;
@@ -417,8 +418,8 @@
     color: #3b3b3b;
     background-color: white;
     border-radius: 50%;
-    width: 30px;
-    height: 30px; }
+    width: 35px;
+    height: 35px; }
     .form-style ul li .add-button:hover {
       cursor: pointer;
       color: #0f33a8;

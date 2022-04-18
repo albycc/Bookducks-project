@@ -55,7 +55,7 @@ async function loadBookData(){
                     <section>
                         <div class="star-row">
                             ${stars}
-                            <span>${bookItem.avgScore}</span>
+                            <span>${bookItem.avgScore !== null ? bookItem.avgScore : ""}</span>
                         </div>
                     </section>
                     <section>
@@ -182,6 +182,10 @@ async function loanBook(){
     $('#close-popup-btn').on('click', ()=>{
         location.reload();
     })
+
+    $(document).on('scroll', ()=>{
+        popupContainer.css('top', window.scrollY)
+    })
 }
 
 async function retrieveBook(){
@@ -218,6 +222,10 @@ async function retrieveBook(){
     
         $('#close-popup-btn').on('click', ()=>{
             location.reload();
+        })
+
+        $(document).on('scroll', ()=>{
+            popupContainer.css('top', window.scrollY)
         })
 
     })
