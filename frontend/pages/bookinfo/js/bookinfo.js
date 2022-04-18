@@ -14,45 +14,89 @@ async function loadBookData(){
     bookId = params.get('id');
     collection = params.get('collection')
 
-    const {data:{data:{attributes:book}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
+    let {data:{data:{attributes:bookItem}}} = await axios.get(`http://localhost:1337/api/${collection}/${bookId}?populate=*`)
 
     const bookType = collection[0].toUpperCase() + collection.slice(1, collection.length-1)
 
-    const genreString = book.genres.data.map(b => b.attributes.name).join(", ");
+    const genreString = bookItem.genres.data.map(b => b.attributes.name).join(", ");
 
-    console.log(book)
+    console.log(bookItem)
+
+    book = bookItem;
 
     const url = book.cover.data !== null ?
     `http://localhost:1337${book.cover.data.attributes.url}` :
      "../../../img/missingCover.svg";
 
+
+    //score stars
+
+    let scorePerc = ((5 - bookItem.avgScore) * 20) + "%";
+    const stars = `
+    <div class="score-bar">
+        <div class="score empty"></div>
+        <div class="score full" style="clip-path:inset(0% ${scorePerc} 0% 0%);">
+    </div>
+    `;
+    
     const container =  `
-        <div class="bookinfo-flexcolumn">
+        <div class="bookinfo-header-container">
             <div class="book-cover">
                 <img src="${url}" alt="" id="">
             </div>
-            <div class="book-info-panel">
-
-                <p>Format <br>${bookType}</p>
-                <p>ISBN <br>${book.isbn}</p>
-                <p>Genres <br>${genreString}</p>
+            <div class="book-info-heading">
+                <article>
+                    <h1>${bookItem.title}</h1>
+                </section>
+                <section>
+                    <p>${bookItem.authors}</p>
+                    ${collection == "audiobooks" ? "<p>Narrated by: " + bookItem.narratedBy + "</p>": ""}
+                </section>
+                <section>
+                    <span class="flex-row flex-space-between">
+                        <span>${bookItem.avgScore}</span>
+                        ${stars}
+                    </span>
+                </section>
+                <section>
+                    <div class="components-row">
+                        <button id="loan-btn" class="component-button"></button>
+                    </div>
+                </section>
             </div>
         </div>
         <div class="main-book-container">
-            <span class="flex-row flex-space-between">
-                <h1>${book.title}</h1>
+            <article>
+                <section>
+                    <h2>Description</h2>
+                </section>
+                <section>
+                    <span>${bookItem.description || ""}</span>
+                    <div id="description-container">
 
-                <span>${book.avgScore}</span>
-            </span>
-            <p>${book.authors}</p>
-            ${collection == "audiobooks" ? "<p>Narrated by: " + book.narratedBy + "</p>": ""}
-            <p>Published date: ${book.datePublished}</p>
-            <button id="loan-btn"></button>
-            <p>description</p>
-            <span>${book.description || ""}</span>
-            <div id="description-container">
-
-            </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Book details</h2>
+                </section>
+                <section>
+                    <p>Format</p>
+                    <p>${bookType}</p>
+                </section>
+                <section>
+                    <p>Genres</p>
+                    <p>${genreString}</p>
+             </section>
+                <section>
+                    <p>Date published</p>
+                    <p>${bookItem.datePublished}</p>
+                </section>
+                <section>
+                    <p>ISBN</p>
+                    <p>${bookItem.isbn}</p>
+                </section>
+            </article>
+           
         </div>
     `;
 
@@ -72,7 +116,7 @@ async function loadBookData(){
                 const loanersMessage = `<div class="user-loaned-box">
                     <p>Already loaned by</p>
                     <p>${book.loanedBy.data.attributes.username}</p>
-                    <p>Users email: ${book.loanedBy.data.attributes.email}</p>
+                    <p>Mail: ${book.loanedBy.data.attributes.email}</p>
                 </div>`
 
                 loanBtn.after(loanersMessage);

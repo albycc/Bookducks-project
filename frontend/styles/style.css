@@ -102,6 +102,35 @@
     .header-login-container a:hover {
       text-decoration: underline; }
 
+.component-button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  background-color: #f82351;
+  color: white; }
+  .component-button:hover {
+    cursor: pointer;
+    background-color: #eb0839; }
+  .component-button:active {
+    background-color: #fa5e80; }
+  .component-button:disabled {
+    background-color: #bdbdbd; }
+
+.score-bar {
+  position: relative;
+  height: 40px;
+  width: 200px; }
+  .score-bar .score {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background-size: 200px 40px; }
+    .score-bar .score.empty {
+      background-image: url("../img/icons/star-empty.svg"); }
+    .score-bar .score.full {
+      background-image: url("../img/icons/star-full.svg"); }
+
 * {
   box-sizing: border-box;
   margin: 0;
