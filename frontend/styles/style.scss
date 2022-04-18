@@ -114,27 +114,6 @@ $header-height:80px;
     padding:20px 30px;
 }
 
-.book-collection{
-    display: flex;
-    flex-flow:row wrap;
-    width:100%;
-    min-height:500px;
-    
-    .book{
-        margin:10px 10px;
-        img{
-            width:220px;
-            height:auto;
-            box-shadow: 5px 5px 10px lightgrey;
-            
-        }
-    }
-    
-    .toggle-border{
-        border:1px dashed black;
-    }
-}
-
 .mainpage-container{
     display:flex;
     flex-direction: column;

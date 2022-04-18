@@ -150,3 +150,65 @@ $search-height:40px;
     @include inputColour(347, 93.8, 55.5, white);
 }
 
+
+.book-collection{
+    display: flex;
+    flex-flow:row wrap;
+    width:100%;
+    min-height:500px;
+    
+    .book{
+        position: relative;
+        width:220px;
+        height:320px;
+        margin:10px 10px;
+        border: 1px solid black;
+        a{
+            
+            img{
+                position: absolute;
+                width:220px;
+                height:auto;
+                box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: 0.3);
+                transform-origin: center;
+                z-index: 2;
+                transition-property: width transform z-index box-shadows;
+                transition-duration: 0.5s;
+                transition-delay: 0.2s;
+
+                &:hover{
+                    width:350px;
+                    transform: rotate(-5deg);
+                    z-index: 3;
+                    box-shadow: -15px 55px 10px rgba($color: #000000, $alpha: 0.3);
+
+
+                    // animation-name: book-hover;
+                    // animation-duration: 0.5s;
+                    // animation-fill-mode: forwards;
+                    // animation-delay: 0.2s;
+                }
+                
+            }
+            .book-info-page{
+                background-color: pink;
+                height:200px;
+                width:450px;
+                z-index: 1;
+                transition-property: width z-index;
+                transition-duration: 0.5s;
+
+                &:hover{
+                    width:600px;
+                    z-index:2
+
+                }
+            }
+        }
+        
+    }
+    
+    .toggle-border{
+        border:1px dashed black;
+    }
+}
