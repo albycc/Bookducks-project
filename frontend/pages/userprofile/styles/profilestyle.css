@@ -15,10 +15,10 @@
   min-height: 700px; }
 
 .user-icon {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background-color: #cecece; }
+  margin-top: 30px; }
+  .user-icon img {
+    width: 250px;
+    border-radius: 50%; }
 
 .user-avatar-container {
   display: flex;
@@ -34,8 +34,9 @@
   justify-content: center;
   position: relative;
   top: -30px;
-  width: 800px;
-  height: 400px;
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
   background-color: white;
   border-radius: 5px;
   padding: 40px 30px; }
