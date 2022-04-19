@@ -232,7 +232,7 @@
 
 @media screen and (min-width: 480px) {
   .book-collection {
-    padding: 60px 100px; }
+    padding: 40px 60px; }
     .book-collection .book {
       margin: 30px 30px; } }
 .link-navigation {
@@ -255,8 +255,10 @@
     height: 80px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 2; }
-    .header-footer-layout header .header-icon a img {
-      height: 64px; }
+    .header-footer-layout header .header-icon a {
+      margin-left: 15px; }
+      .header-footer-layout header .header-icon a img {
+        height: 40px; }
   .header-footer-layout main {
     min-height: 800px;
     flex-grow: 1; }

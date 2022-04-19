@@ -53,6 +53,8 @@
       margin: 10px 0px; }
     .about-article section .user-details-container p.user-info-row {
       margin: 20px 0px; }
+      .about-article section .user-details-container p.user-info-row > span:first-of-type {
+        font-weight: bold; }
       .about-article section .user-details-container p.user-info-row span + span {
         margin-left: 20px; }
 

@@ -72,7 +72,7 @@ async function loadBookData(){
                     <h2>Description</h2>
                 </section>
                 <section>
-                    <span>${bookItem.description || ""}</span>
+                    <span class="desc-text">${bookItem.description || ""}</span>
                     <div id="description-container">
 
                     </div>

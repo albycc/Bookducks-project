@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-image: url('../img/startpage_intro_background.jpg');
+    background-image: url('../img/startpage_intro_background1.jpg');
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: scroll;
@@ -33,6 +33,14 @@
 
 
         }
+    }
+
+}
+.books-container{
+    h2{
+        margin:50px 70px 0px 170px;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 1.9em;
     }
 }
 

@@ -65,6 +65,9 @@
         .user-details-container{
             p.user-info-row{
                 margin:20px 0px;
+                & > span:first-of-type{
+                    font-weight: bold;
+                }
                 span + span{
                     margin-left:20px;
                 }
