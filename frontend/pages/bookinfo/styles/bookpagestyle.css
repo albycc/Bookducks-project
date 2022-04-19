@@ -49,6 +49,8 @@ main.bookpage-main {
       margin: 15px 5px; }
       .book-container div.main-book-container article section p:first-of-type {
         font-weight: bold; }
+      .book-container div.main-book-container article section .desc-text {
+        font-family: 'Source Sans Pro', sans-serif; }
 
 .recipe-popup-container {
   position: absolute;
