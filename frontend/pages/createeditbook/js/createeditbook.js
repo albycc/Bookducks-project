@@ -110,18 +110,6 @@ $('#submit-btn').on('click', async (e)=>{
     //         console.log(error.message)
     // })
 
-    axios.post(`http://localhost:1337/api/${radioValue}`, {
-                data:bookObject
-            },
-            {
-                headers:{
-                    Authorization:`Bearer ${userData.jwt}`
-                }
-            }
-    )
-
-
-
     const {data:{data:book}} = await axios.post(`http://localhost:1337/api/${radioValue}`, {
             data:bookObject
         },
