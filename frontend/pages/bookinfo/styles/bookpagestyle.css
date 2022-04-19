@@ -26,7 +26,8 @@ main.bookpage-main {
       background-color: white;
       border: 1px solid silver; }
       .book-container .bookinfo-header-container .book-info-heading article h1 {
-        font-size: 2em; }
+        font-size: 2em;
+        font-family: 'Merriweather', serif; }
       .book-container .bookinfo-header-container .book-info-heading article section {
         margin: 15px 0px; }
         .book-container .bookinfo-header-container .book-info-heading article section .star-row {

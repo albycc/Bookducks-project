@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Merriweather:wght@300&family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&family=Public+Sans:wght@200&family=Quicksand&family=Source+Sans+Pro&display=swap");
 .popup-container {
   position: absolute;
   display: flex;
@@ -90,7 +91,8 @@
     flex-direction: row;
     align-items: center; }
     .header-login-container .profile-content a span {
-      margin: 0px 10px; }
+      margin: 0px 10px;
+      font-family: 'Merriweather', serif; }
   .header-login-container .avatar-icon {
     border-radius: 30px;
     border: 1px solid #9e9e9e;
@@ -215,9 +217,10 @@
     visibility: visible; } }
     .book-collection .book p.title {
       font-weight: bold;
-      font-size: 1.3em;
+      font-size: 1.1em;
       width: 220px;
-      text-align: center; }
+      text-align: center;
+      font-family: 'Merriweather', serif; }
     .book-collection .book p.authors {
       overflow: hidden;
       white-space: nowrap;
@@ -232,6 +235,12 @@
     padding: 60px 100px; }
     .book-collection .book {
       margin: 30px 30px; } }
+.link-navigation {
+  color: #f82351;
+  text-decoration: none; }
+  .link-navigation:hover {
+    color: blue; }
+
 .header-footer-layout {
   display: flex;
   flex-direction: column;
@@ -337,10 +346,28 @@
         margin: 10px; }
   .header-footer-layout footer .icon-row li {
     display: inline-block; } }
+/*
+font-family: 'DM Sans', sans-serif;
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Public Sans', sans-serif;
+font-family: 'Quicksand', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+
+*/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0; }
+
+h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif; }
+
+p {
+  font-family: 'Source Sans Pro', 'Arial', sans-serif; }
+
+input, a, label {
+  font-family: 'DM Sans', 'Verdana', 'Arial', sans-serif; }
 
 .start-page-intro-container {
   min-height: 500px; }
@@ -495,5 +522,8 @@
 span.red-text {
   font-weight: bold;
   color: #f14a2d; }
+
+.forecolour-white {
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */

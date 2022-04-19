@@ -77,6 +77,7 @@ $search-height:40px;
             align-items: center;
             span{
                 margin:0px 10px;
+                font-family: 'Merriweather', serif;
             }
         }
 
@@ -231,9 +232,10 @@ $search-height:40px;
 
         p.title{
             font-weight: bold;
-            font-size:1.3em;
+            font-size:1.1em;
             width:220px;
             text-align: center;
+            font-family: 'Merriweather', serif;
         }
 
         p.authors{
@@ -258,5 +260,14 @@ $search-height:40px;
         .book{
             margin:30px 30px;
         }
+    }
+}
+
+.link-navigation{
+    color:$darkPink;
+    text-decoration: none;
+
+    &:hover{
+        color:blue;
     }
 }

@@ -2,11 +2,34 @@
 @import './popupwindow.scss';
 @import './components.scss';
 @import './layouts.scss';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Merriweather:wght@300&family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&family=Public+Sans:wght@200&family=Quicksand&family=Source+Sans+Pro&display=swap');
+
+/*
+font-family: 'DM Sans', sans-serif;
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Public Sans', sans-serif;
+font-family: 'Quicksand', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+
+*/
 
 *{
     box-sizing: border-box;
     margin:0;
     padding:0;
+}
+
+h1, h2, h3{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+p{
+    font-family: 'Source Sans Pro', 'Arial', sans-serif;
+}
+
+input, a, label{
+    font-family: 'DM Sans', 'Verdana', 'Arial', sans-serif;
 }
 
 .start-page-intro-container{
@@ -231,4 +254,8 @@ $inputHeight:35px;
 span.red-text{
     font-weight: bold;
     color:rgb(241, 74, 45);
+}
+
+.forecolour-white{
+    color:white;
 }
