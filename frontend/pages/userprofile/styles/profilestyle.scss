@@ -56,10 +56,17 @@
     width:60%;
 
     section{
+        display: flex;
+        flex-direction: column;
         min-height:150px;
         h2{
             text-align: center;
             margin:10px 0px;
+        }
+
+        &.end{
+            justify-content: flex-end;
+            
         }
 
         .user-details-container{

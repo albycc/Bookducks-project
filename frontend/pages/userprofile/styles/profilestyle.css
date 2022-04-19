@@ -47,10 +47,14 @@
   align-items: center;
   width: 60%; }
   .about-article section {
+    display: flex;
+    flex-direction: column;
     min-height: 150px; }
     .about-article section h2 {
       text-align: center;
       margin: 10px 0px; }
+    .about-article section.end {
+      justify-content: flex-end; }
     .about-article section .user-details-container p.user-info-row {
       margin: 20px 0px; }
       .about-article section .user-details-container p.user-info-row > span:first-of-type {
