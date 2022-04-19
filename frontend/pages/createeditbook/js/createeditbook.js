@@ -38,7 +38,7 @@ $('#submit-btn').on('click', async (e)=>{
     if(coverInput[0].files.length == 0){
         console.log("missing cover image")
         preview.addClass('error')
-        preview.next().text(`missing image click her to choose`)
+        preview.next().text(`missing image click here to choose`)
         return;
     }
     //missing fields?
