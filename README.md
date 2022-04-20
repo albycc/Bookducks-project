@@ -21,9 +21,17 @@ Has landscape background image, search function, button that lists available boo
 
 ## Seach page
 
-Search books or authors
+Search books or authors, both available and currenlty loaning
 
-##Profile page
+Use * to see all available books
+
+## Book page
+
+A book's page when clicking on a book from startpage, search page or user's profile.
+
+List's the books attributes, title, coverimage and the ability to loan/retrieve book.
+
+## Profile page
 
 User's profile page
 
