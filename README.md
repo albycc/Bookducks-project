@@ -2,6 +2,8 @@
 
 A community of booklovers that love to loan and share books with each other.
 
+![alt text](https://github.com/albycc/Bookducks-project/blob/main/preview1.jpg?raw=true)
+
 Made as part of a schoolproject.
 
 ## Install
