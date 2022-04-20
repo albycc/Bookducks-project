@@ -88,27 +88,20 @@ $('#submit-btn').on('click', async (e)=>{
 
     console.log(imgData);
 
-    //send image
-    // await axios.post('http://localhost:1337/api/upload', imgData ,{
-    //     headers:{
-    //         Authorization:`Bearer ${userData.jwt}`,
-    //     }
-    // })
-    // .then(response =>{
-    //         bookObject.cover = response.data[0].id
-    //         axios.post(`http://localhost:1337/api/${radioValue}`, {
-    //             data:bookObject
-    //         },
-    //         {
-    //             headers:{
-    //                 Authorization:`Bearer ${userData.jwt}`
-    //             }
-    //         })
-    //     }
-    // )
-    // .catch(error =>{
-    //         console.log(error.message)
-    // })
+    // send image
+    await axios.post('http://localhost:1337/api/upload', imgData ,{
+        headers:{
+            Authorization:`Bearer ${userData.jwt}`,
+        }
+    })
+    .then(response =>{
+            bookObject.cover = response.data[0].id
+            
+        }
+    )
+    .catch(error =>{
+            console.log(error.message)
+    })
 
     const {data:{data:book}} = await axios.post(`http://localhost:1337/api/${radioValue}`, {
             data:bookObject

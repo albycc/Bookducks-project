@@ -104,6 +104,9 @@ $inputHeight:35px;
                 background-color: white;
                         padding:0px 10px;
             }
+            textarea{
+                min-height:200px;
+            }
             input[type="submit"], button{
                 border:none;
                 background-color:rgb(247, 67, 106);

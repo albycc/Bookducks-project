@@ -46,11 +46,14 @@ createBtn.on('click', async (e)=>{
             popupMessage.append(`
                 <div class="popup-container">
                     <div class="message-box">
-                        <h2>Account created succesful!</h2>
-                        <p>Now enjoy plenty of books here at</p>
-                        <p>Book Ducks</p>
-
-                        <button id="close-popup-btn">Close</button>
+                        <div class="content">
+                            <h2>Account created succesful!</h2>
+                            <p>Now enjoy plenty of books here at</p>
+                            <p>meinPage</p>
+                        </div>
+                        <div class="content links">
+                            <button id="close-popup-btn" class="close">Close</button>
+                        </div>
                     </div>
                 </div>
             `);

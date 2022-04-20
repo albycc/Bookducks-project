@@ -82,7 +82,7 @@ function initPage(){
         return;
     }
     fetchUserInfo();
-    setBookCollection("../../../", "../")
+    setBookCollection("../../", "../../")
 }
 
 initPage();

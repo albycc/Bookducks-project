@@ -81,10 +81,10 @@
         font-size: 2.2em; }
     .tab-container .book-tab ~ .tab-content {
       display: none; }
-    .tab-container .book-tab:checked + label {
+    .tab-container .book-tab:checked + label > span:first-of-type {
       text-decoration: underline; }
-      .tab-container .book-tab:checked + label > .book-tab-count {
-        text-decoration: none; }
+    .tab-container .book-tab:checked + label > .book-tab-count {
+      text-decoration: none; }
   .tab-container #loaned-tab.book-tab:checked ~ #books-loaned-tab-content.tab-content {
     display: block; }
   .tab-container #registered-tab.book-tab:checked ~ #books-registered-tab-content.tab-content {

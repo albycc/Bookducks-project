@@ -86,7 +86,8 @@
   .link-button {
     font-size: 2em; } }
 .header-login-container {
-  display: flex; }
+  display: flex;
+  margin: 0px 20px; }
   .header-login-container .profile-content a {
     display: flex;
     flex-direction: row;
@@ -421,6 +422,8 @@ input, a, label {
     width: 300px;
     background-color: white;
     padding: 0px 10px; }
+  .form-style ul li textarea {
+    min-height: 200px; }
   .form-style ul li input[type="submit"], .form-style ul li button {
     border: none;
     background-color: #f7436a;

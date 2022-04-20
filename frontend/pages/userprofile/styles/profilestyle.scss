@@ -108,7 +108,10 @@
             display:none;
         }
         &:checked + label{
-            text-decoration: underline;
+            & > span:first-of-type{
+                text-decoration: underline;
+
+            }
             & > .book-tab-count{
                 text-decoration: none;
             }
