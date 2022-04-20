@@ -13,6 +13,8 @@ const narrationsInputfield = $('#input-field-narrators')
 const coverInput = $('#cover-input');
 const preview = $('#book-cover') 
 
+const submitBtn = $('#submit-btn');
+
 
 $('[name="type-radio-grp"]').on('click', toggleRadioButtons)
 
@@ -23,7 +25,7 @@ function toggleRadioButtons(){
 }
 
 
-$('#submit-btn').on('click', async (e)=>{
+submitBtn.on('click', async (e)=>{
     e.preventDefault();
 
     console.log('create book function');
@@ -87,6 +89,8 @@ $('#submit-btn').on('click', async (e)=>{
     bookObject.creator = userData.user.id
 
     console.log(imgData);
+
+    submitBtn.attr('disabled', true);
 
     // send image
     await axios.post('http://localhost:1337/api/upload', imgData ,{
