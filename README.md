@@ -20,6 +20,10 @@ Homepage.
 
 Has landscape background image, search function, button that lists available books, and three rows of books
 
+Hover the mouse over a book will zoom in the book, revealing a note if it's available or not.
+
+![alt text](https://github.com/albycc/Bookducks-project/blob/main/preview2.jpg?raw=true)
+
 
 ## Seach page
 
